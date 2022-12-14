@@ -1,0 +1,120 @@
+html,
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background: black;
+}
+
+.page {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	font-family: monospace;
+	user-select: none;
+}
+
+header {
+	/* margin: auto;
+	color: aliceblue;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center; */
+	font-size: 40px;
+	color: aliceblue;
+    text-align: center;
+	margin: auto;
+}
+
+.table {
+	margin: auto;
+	background: black;
+	box-sizing: border-box;
+}
+
+.row {
+	display: flex;
+	justify-content: center;
+}
+
+.cell {
+	width: 90px;
+	height: 90px;
+	color: white;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 24px;
+	box-sizing: border-box;
+	border: 5px solid yellow;
+	border-radius: 15px;
+}
+
+.cell:hover {
+	border: 3px solid white;
+}
+
+.section {
+	box-sizing: border-box;
+	margin: auto;
+}
+
+.cage {
+	width: 70px;
+	height: 90px;
+	color: azure;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 24px;
+	box-sizing: border-box;
+	border: 1px solid grey;
+	border-radius: 5px;
+}
+
+.cage:hover {
+	border: 1px solid white;
+}
+
+.cage:active {
+	background: white;
+}
+.submit {
+	color: #555;
+	background: lightgreen;
+}
+
+.cage1 {
+	transform: scaleX(-1);
+	/* Отражение картинки по горизонтали */
+	width: 90px;
+	height: 90px;
+	color: azure;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 24px;
+	box-sizing: border-box;
+	border: 1px solid gray;
+	border-radius: 5px;
+}
+
+.cage1.backspace {
+	color: #555;
+	background: white;
+}
+
+.cage1.backspace:active {
+	border: 1px solid white;
+	color: white;
+}
+
+
+.leters {
+	background: black;
+    display: flex;
+    justify-content: center;
+}
