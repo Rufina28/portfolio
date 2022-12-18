@@ -25,7 +25,7 @@ header {
 	justify-content: center; */
 	font-size: 40px;
 	color: aliceblue;
-    text-align: center;
+	text-align: center;
 	margin: auto;
 }
 
@@ -82,6 +82,7 @@ header {
 .cage:active {
 	background: white;
 }
+
 .submit {
 	color: #555;
 	background: lightgreen;
@@ -115,6 +116,33 @@ header {
 
 .leters {
 	background: black;
+	display: flex;
+	justify-content: center;
+}
+
+.circle {
+	color: black;
+	box-sizing: border-box;
+	border-radius: 50%;
+	background-color: yellow;   
+	width: 100px;
+	height: 100px;
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+h2 {
+	color: yellow;
+	display: flex;
+	justify-content: center;
+}
+
+p {
+	color: white;
+}
+
+.Final{
+	display: flex;
+	justify-content: center;
 }
