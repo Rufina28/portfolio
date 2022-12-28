@@ -57,6 +57,8 @@ header {
 	border: 3px solid white;
 }
 
+.cell.selected::after {}
+
 .section {
 	box-sizing: border-box;
 	margin: auto;
@@ -124,12 +126,36 @@ header {
 	color: black;
 	box-sizing: border-box;
 	border-radius: 50%;
-	background-color: yellow;   
+	background-color: yellow;
 	width: 100px;
 	height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.line {
+	display: block;
+	border-right: 4px solid yellow;
+	width: 0;
+	height: 23px;
+	top: 100px;
+	left: 49px;
+	align-self: center;
+	transform: rotateZ(90deg);
+	margin-left: 11px;
+}
+
+.line1 {
+	display: block;
+	border-right: 4px solid gray;
+	width: 0;
+	height: 23px;
+	top: 100px;
+	left: 49px;
+	align-self: center;
+	transform: rotateZ(90deg);
+	margin-left: 11px;
 }
 
 h2 {
@@ -142,7 +168,35 @@ p {
 	color: white;
 }
 
-.final{
+.final {
 	display: flex;
 	justify-content: center;
+}
+
+.ansver {
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-evenly;
+	color: yellow;
+}
+
+.reply {
+	color: yellow;
+	text-align: center;
+	margin-top: 10px;
+}
+
+.reply1 {
+	color: gray;
+}
+
+.circle1 {
+	box-sizing: border-box;
+	border-radius: 50%;
+	background-color: gray;
+	width: 100px;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
