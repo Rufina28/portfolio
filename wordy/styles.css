@@ -1,6 +1,6 @@
 html,
 body {
-	height: 100%;
+	min-height: 100%;
 	margin: 0;
 	padding: 0;
 	background: black;
@@ -29,7 +29,8 @@ header {
 	margin: auto;
 }
 
-.table {
+.desk {
+	position: relative;
 	margin: auto;
 	background: black;
 	box-sizing: border-box;
@@ -51,6 +52,7 @@ header {
 	box-sizing: border-box;
 	border: 5px solid yellow;
 	border-radius: 15px;
+	position: relative;
 }
 
 .cell:hover {
@@ -59,7 +61,7 @@ header {
 
 .cell.selected::after {}
 
-.section {
+.alphabet {
 	box-sizing: border-box;
 	margin: auto;
 }
@@ -135,58 +137,48 @@ header {
 }
 
 .line {
-	display: block;
-	border-right: 4px solid yellow;
-	width: 0;
-	height: 23px;
-	top: 100px;
-	left: 49px;
-	align-self: center;
-	transform: rotateZ(90deg);
-	margin-left: 11px;
+    background: yellow;
+    width: 23px;
+    height: 3px;
+    align-self: center;
+    position: relative;
+    top: -15px;
 }
 
-.line1 {
-	display: block;
-	border-right: 4px solid gray;
-	width: 0;
-	height: 23px;
-	top: 100px;
-	left: 49px;
-	align-self: center;
-	transform: rotateZ(90deg);
-	margin-left: 11px;
+.line-empty {
+    background: grey;
 }
 
-h2 {
+.results h2 {
 	color: yellow;
-	display: flex;
-	justify-content: center;
+	text-align: center;
+	font-size: 2rem;
+	font-weight: 100;
 }
 
 p {
 	color: white;
 }
 
-.final {
+.results {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 }
 
-.ansver {
-	margin-top: 20px;
+.results .table {
 	display: flex;
-	justify-content: space-evenly;
-	color: yellow;
+	justify-content: center;
 }
 
 .reply {
 	color: yellow;
 	text-align: center;
 	margin-top: 10px;
+	font-size: 1.3rem;
 }
 
-.reply1 {
+.reply-empty {
 	color: gray;
 }
 
@@ -199,4 +191,90 @@ p {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.tooltip {
+	text-align: center;
+    padding: 15px;
+    border: 3px solid white;
+    border-radius: 10px;
+    color: black;
+    background: white;
+    position: absolute;
+    top: 76px;
+    font-size: .9rem;
+    width: auto;
+    min-width: 300px;
+    left: -100%;
+    z-index: 1000;
+}
+
+.tooltip::before {
+	content: '';
+	width: 26px;
+	height: 26px;
+	position: absolute;
+	transform: rotate(45deg);
+	top: -15px;
+    background: white;
+	left: 100px;
+}
+
+.modal-container {
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+	width: 300px;
+	height: 300px;
+	text-align: center;
+	padding: 15px;
+	border: 3px solid rgb(43, 42, 42);
+	border-radius: 35px;
+	color: yellow;
+	background: rgb(64, 63, 63);
+}
+
+h4 {
+	margin-top: -4px;
+
+}
+
+.close {
+	display: flex;
+	justify-content: right;
+	color: #f1f1f5;
+	text-decoration: none;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.window3 {
+	width: 206px;
+	height: 58px;
+	text-align: center;
+	padding: 15px;
+	border: 3px solid rgb(43, 42, 42);
+	border-radius: 25px;
+	color: rgb(247, 247, 246);
+	background: rgb(64, 63, 63);
+}
+
+.window4 {
+	width: 192px;
+	height: 18px;
+	text-align: center;
+	padding: 15px;
+	border: 2px solid rgb(232, 232, 22);
+	border-radius: 25px;
+	color: rgb(232, 232, 22);
+	background: rgb(64, 63, 63);
 }

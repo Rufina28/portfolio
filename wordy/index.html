@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>wordle</title>
+    <title>Wordy</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
     <style type="text/css"></style>
@@ -11,52 +11,55 @@
 
 <body>
     <div class="page">
-        <header>Wordle</header>
-        <div id="table" class="table">
-            <div class="row">
-                <div class="cell">С</div>
+        <header>Wordy</header>
+        <div id="desk" class="desk">
+            <div class="row" id="word1">
+                <div class="cell">С
+                    <div class="tooltip">Не угадали положение буквы &#128520;</div>
+                </div>
                 <div class="cell">Л</div>
                 <div class="cell">И</div>
                 <div class="cell">В</div>
                 <div class="cell">А</div>
             </div>
-            <div class="row">
+            <div class="row" id="word2">
                 <div class="cell">Л</div>
                 <div class="cell selected">А</div>
                 <div class="cell">З</div>
                 <div class="cell">Е</div>
                 <div class="cell">Р</div>
             </div>
-            <div class="row">
+            <div class="row" id="word3">
                 <div class="cell">С</div>
                 <div class="cell">А</div>
                 <div class="cell">Л</div>
                 <div class="cell">А</div>
                 <div class="cell">Т</div>
             </div>
-            <div class="row">
+            <div class="row" id="word4">
                 <div class="cell">М</div>
                 <div class="cell">А</div>
                 <div class="cell">Л</div>
                 <div class="cell">Е</div>
                 <div class="cell">К</div>
             </div>
-            <div class="row">
+            <div class="row" id="word5">
                 <div class="cell">Ш</div>
                 <div class="cell">А</div>
                 <div class="cell">Л</div>
                 <div class="cell">А</div>
                 <div class="cell">Ш</div>
             </div>
-            <div class="row">
+            <div class="row" id="word6">
                 <div class="cell">Н</div>
                 <div class="cell">А</div>
                 <div class="cell">Л</div>
                 <div class="cell">О</div>
                 <div class="cell">Г</div>
             </div>
+
         </div>
-        <div class="section">
+        <div class="alphabet">
             <div class="leters">
                 <div class="cage">Й</div>
                 <div class="cage">Ц</div>
@@ -98,28 +101,51 @@
                 <div class="cage1 backspace" id="backspace">&#8998;</div>
             </div>
         </div>
-    </div>
-    <h2>Продолжай играть и выигрывать призы</h2>
-    <div class="final">
-        <div>
-            <div class="circle">&#10004;</div>
-            <div class="reply">Какао</div>
+
+
+        <div class="results">
+            <h2>Продолжай играть и выигрывать призы</h2>
+            <div class="table">
+                <div>
+                    <div class="circle">&#10004;</div>
+                    <div class="reply">Какао</div>
+                </div>
+                <div class="line"></div>
+                <div>
+                    <div class="circle">&#10004;</div>
+                    <div class="reply">Полис</div>
+                </div>
+                <div class="line"></div>
+                <div>
+                    <div class="circle">&#10004;</div>
+                    <div class="reply">Налог</div>
+                </div>
+                <div class="line line-empty"></div>
+                <div>
+                    <div class="circle1">39</div>
+                    <div class="reply reply-empty">&#8230;</div>
+                </div>
+                <div class="line line-empty"></div>
+                <div>
+                    <div class="circle1">&#127873;</div>
+                    <div class="reply reply-empty">&#8230;</div>
+                </div>
+
+            </div>
+
         </div>
-        <div class="line"></div>
-        <div class="circle">&#10004;</div>
-        <div class="line"></div>
-        <div class="circle">&#10004;</div>
-        <div class="line1"></div>
-        <div class="circle1">39</div>
-        <div class="line1"></div>
-        <div class="circle1">&#127873;</div>
-    </div>
-    <div class="ansver">
-        <div class="reply">Полис</div>
-        <div class="reply">Налог</div>
-        <div class="reply1">&#8230;</div>
-        <div class="reply1">&#8230;</div>
-    </div>
+        <div class="modal-container">
+
+            <div class="modal">
+                <a href="#" class="close">&#10006;</a>
+                <h4>Вы отгадали слово!</h4>
+                <div class="window3">Новое слово появится через:<br>
+                    07:01:31</div>
+                <p>Количество попыток:</p>
+                <h3><span class="luck">4</span>/<span class="all">6</span></h3>
+                <div class="window4">Рассказать друзьям</div>
+            </div>
+        </div>
 </body>
 
 </html>
