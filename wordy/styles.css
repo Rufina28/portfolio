@@ -260,10 +260,10 @@ p {
 }
 
 .modal {
-	width: 300px;
-	height: 325px;
+	width: 372px;
+	height: 400px;
 	text-align: center;
-	padding: 15px;
+	padding: 10px;
 	border: 3px solid rgb(43, 42, 42);
 	border-radius: 35px;
 	color: yellow;
@@ -271,7 +271,6 @@ p {
 }
 
 h4 {
-	margin-top: -13px;
 	font-size: 20px;
 
 }
@@ -286,11 +285,10 @@ h4 {
 }
 
 .window3 {
-	width: 247px;
-	height: 62px;
+	width: 336px;
+	height: 119px;
 	display: inline-block;
 	font-size: 16px;
-	padding: 15px;
 	border: 3px solid rgb(43, 42, 42);
 	border-radius: 25px;
 	color: rgb(247, 247, 246);
@@ -321,4 +319,34 @@ strong {
 .all {
 	color: #555;
 	font-size: 28px;
+}
+
+.answer {
+	width: 373px;
+	height: 240px;
+	text-align: center;
+	border: 3px solid rgb(43, 42, 42);
+	border-radius: 35px;
+	color: yellow;
+	background: rgb(36 35 35);
+}
+
+.window5 {
+	width: 298px;
+	height: 123px;
+	display: inline-block;
+	font-size: 16px;
+	border: 3px solid rgb(43, 42, 42);
+	border-radius: 25px;
+	color: rgb(247, 247, 246);
+	background: rgb(64, 63, 63);
+}
+
+h5 {
+	font-size: 16px;
+	color: rgb(213, 210, 210);
+}
+
+h2 {
+	font-size: 33px;
 }
