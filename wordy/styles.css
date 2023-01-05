@@ -219,6 +219,33 @@ p {
 	left: 100px;
 }
 
+.tooltip2 {
+	text-align: center;
+	padding: 15px;
+	border: 3px solid white;
+	border-radius: 10px;
+	color: black;
+	background: white;
+	position: absolute;
+	top: 76px;
+	font-size: .9rem;
+	width: auto;
+	min-width: 150px;
+	left: -100%;
+	z-index: 1000;
+}
+
+.tooltip2::before {
+	content: '';
+	width: 26px;
+	height: 26px;
+	position: absolute;
+	transform: rotate(45deg);
+	top: -15px;
+	background: white;
+	left: 100px;
+}
+
 .modal-container {
 	position: fixed;
 	top: 0;
