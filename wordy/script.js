@@ -22,9 +22,18 @@ window.onload = function () {
     keyboard.addEventListener('click', (e) => {
         let key = e.target.innerText.toUpperCase()
         console.log('keyboard:', key)
+        console.log('letterNumber:', letterNumber)
 
-        if (wordNumber > 6) {
+        let controls = e.target.id
+
+        if (wordNumber > 6 || key.length > 1) {
             console.log('Aready done, return')
+
+            return
+        }
+
+        if (controls) {
+            actions[controls]()
 
             return
         }
@@ -49,22 +58,47 @@ window.onload = function () {
             } else if (hasLetter) {
                 cells[letterNumber].classList.add('letter')
             } else {
-                cells[letterNumber].classList.add('wrong')}
-
-            if (letterNumber === 4) {
-                letterNumber = 0
-                wordNumber += 1
-                if (wordNumber > 6) {
-                    console.log('Done')
-                }
-            } else {
-                // letterNumber++
-                letterNumber += 1
-                // letterNumber = letterNumber + 1
+                cells[letterNumber].classList.add('wrong')
             }
+
+            if (letterNumber < 5) {
+                letterNumber += 1
+            }
+            console.log('letterNumber:', letterNumber)
         }
     }, false)
 
 }
 
+const actions = {
+    submit: () => {
+        console.log('submit')
+        if (letterNumber === 4) {
+            console.log('submit word')
+            letterNumber = 0
+            wordNumber += 1
+            if (wordNumber > 6) {
+                console.log('Done')
+            }
+        }
+    },
+    backspace: () => {
+        console.log('backspace letterNumber:', letterNumber)
 
+        if (letterNumber > 0) {
+            let row = document.getElementById(`word${wordNumber}`)
+            let cells = row.querySelectorAll('.cell')
+            let targetCell = cells[letterNumber - 1]
+
+            if (targetCell) {
+                targetCell.innerText = ''
+                targetCell.classList.remove('wrong')
+                targetCell.classList.remove('letter')
+                targetCell.classList.remove('place')
+
+                letterNumber -= 1
+            }
+        }
+        console.log('backspace letterNumber:', letterNumber)
+    }
+}
