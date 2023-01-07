@@ -3,12 +3,15 @@
 
   <MainPage v-if="page === 'home'"/>
   <InfoPage v-if="page === 'info'"/>
+  <PhotoPage v-if="page === 'photo'"/>
 </template>
 
 <script>
 import PageHeader from './components/PageHeader.vue'
 import MainPage from './components/MainPage.vue'
 import InfoPage from './components/InfoPage.vue'
+import PhotoPage from './components/PhotoPage.vue'
+
 
 export default {
   name: 'App',
@@ -21,6 +24,7 @@ export default {
     PageHeader,
     MainPage,
     InfoPage,
+    PhotoPage,
   }
 }
 </script>
