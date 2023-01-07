@@ -24,6 +24,7 @@ window.onload = function () {
         let key = e.target.innerText.toUpperCase()
         console.log('keyboard:', key)
         console.log('letterNumber:', letterNumber)
+        // add key to cuurent cell
 
         let controls = e.target.id
 
@@ -40,28 +41,10 @@ window.onload = function () {
         }
 
         let row = document.getElementById(`word${wordNumber}`)
-
         let cells = row.querySelectorAll('.cell')
 
         if (cells[letterNumber]) {
-            cells[letterNumber].innerText = key
-
-            let hasLetter = word.includes(key)
-
-            console.log('hasLetter:', hasLetter)
-
-            let placeLetter = word[letterNumber] === key
-
-            console.log('placeLetter:', placeLetter)
-
-            if (hasLetter && placeLetter) {
-                cells[letterNumber].classList.add('place')
-            } else if (hasLetter) {
-                cells[letterNumber].classList.add('letter')
-            } else {
-                cells[letterNumber].classList.add('wrong')
-            }
-
+           cells[letterNumber].innerText = key
             if (letterNumber < 5) {
                 letterNumber += 1
             }
@@ -92,6 +75,8 @@ const actions = {
                 console.log('wordNumber:', wordNumber)
             }
 
+            actions.paintWord(input)
+
             if (wordNumber > 6) {
                 console.log('Done')
             }
@@ -100,7 +85,7 @@ const actions = {
     backspace: () => {
         console.log('backspace letterNumber:', letterNumber)
 
-        if (letterNumber > 0  && !win) {
+        if (letterNumber > 0 && !win) {
             let row = document.getElementById(`word${wordNumber}`)
             let cells = row.querySelectorAll('.cell')
             let targetCell = cells[letterNumber - 1]
@@ -115,5 +100,35 @@ const actions = {
             }
         }
         console.log('backspace letterNumber:', letterNumber)
+    },
+    paintWord: (input) => {
+        console.log('paintWord:', input)
+
+        for (let i = 0; i < 5; i++) {
+            let key = input[i]
+            let hasLetter = word.includes(key)
+
+            console.log('key:', key)
+
+            console.log('hasLetter:', hasLetter)
+    
+            let placeLetter = word[i] === key
+    
+            console.log('placeLetter:', placeLetter)
+
+            let row = document.getElementById(`word${win ? wordNumber : wordNumber - 1}`)
+            let cells = row.querySelectorAll('.cell')
+    
+            if (hasLetter && placeLetter) {
+                cells[i].classList.add('place')
+            } else if (hasLetter) {
+                cells[i].classList.add('letter')
+            } else {
+                cells[i].classList.add('wrong')
+            }
+        }
+
+        console.log('paintWord done')
+
     }
 }
