@@ -1,6 +1,17 @@
 <template>
   <main>
-      <div class="img">INFO</div>
+    <div class="info">
+            <h1>Мексика – всё, что нужно знать о Мексике для туристического отдыха</h1>
+            <p>Мексика представляет собой неповторимый коктейль, в котором гармонично сплелись испанская, индейская
+                и карибская культуры. Уникальный местный колорит, богатая история воинственного народа, потрясающие
+                природные пейзажи и зажигательный темперамент мексиканцев заманивают туристов со всего мира. Мы
+                постараемся детально разобраться, как живёт эта яркая страна, чем Мексика и её жители способны
+                удивить даже бывалого туриста и на что непременно стоит обратить внимание, странствуя по
+                мексиканским долинам. Вас ждёт захватывающее путешествие на родину текилы и тортильи, которое не
+                оставит ни единого сомнения в том, что Мексика – это колоритная сказка с острым привкусом чили на
+                губах!</p>
+        </div>
+        <div class="img"></div>
   </main>
 </template>
 
@@ -12,151 +23,34 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
-@keyframes slideshow {
-  0% {
-    left: 0;
-  }
-
-  10% {
-    left: 0;
-  }
-
-  15% {
-    left: -100%;
-  }
-
-  25% {
-    left: -100%;
-  }
-
-  30% {
-    left: -200%;
-  }
-
-  40% {
-    left: -200%;
-  }
-
-  60% {
-    left: -200%;
-  }
-
-  70% {
-    left: -200%;
-  }
-
-  75% {
-    left: -100%;
-  }
-
-  85% {
-    left: -100%;
-  }
-
-  90% {
-    left: 0%;
-  }
+ul {
+	display: flex;
+	justify-content: space-around;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+a {
+	/*color: white;*/
+	font-family: Comic Sans MS, Comic Sans, cursive;
+	text-decoration: none;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  width: 800px;
-  height: 600px;
+li {
+	list-style-type: none;
+	/*color: white;*/
 }
 
-.main-heading {
-  padding: 2rem 0 2rem 0;
+/*p,h1,h2{
+	color: white;*/
+
+.info {
+	display: flex;
+	flex-direction: column;
 }
 
-
-.carousel-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  z-index: 50;
+.img {
+	background: url('@/assets/information.jpg');
+	height: 900px;
+	width: 1800px;
 }
 
-.slideshow {
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-.slideshow-wrapper {
-  display: flex;
-  width: 300%;
-  height: 100%;
-  position: relative;
-  animation: slideshow 20s infinite;
-}
-
-.slide {
-  width: 100%;
-  height: 100%;
-}
-
-.slide-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.slide-btn {
-  background-color: #bbb;
-  border-radius: 50%;
-  border: .2rem solid black;
-  width: 1.2rem;
-  height: 1.2rem;
-  outline: none;
-  cursor: pointer;
-  position: absolute;
-  bottom: 3%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 70;
-}
-
-.slide-btn-1 {
-  left: 45%;
-}
-
-.slide-btn-2 {
-  left: 50%;
-}
-
-.slide-btn-3 {
-  left: 55%;
-}
-
-.slide-btn-4 {
-  left: 60%;
-}
-
-.slide-btn-1:focus~.slideshow-wrapper {
-  animation: none;
-  left: 0;
-}
-
-.slide-btn-2:focus~.slideshow-wrapper {
-  animation: none;
-  left: -100%;
-}
-
-.slide-btn-3:focus~.slideshow-wrapper {
-  animation: none;
-  left: -200%;
-}
 </style>
