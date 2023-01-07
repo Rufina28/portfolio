@@ -12,6 +12,7 @@ let word = 'налог'.toUpperCase()
 
 let wordNumber = 1
 let letterNumber = 0
+let win = false
 
 window.onload = function () {
     const desk = document.getElementById('desk')
@@ -73,10 +74,24 @@ window.onload = function () {
 const actions = {
     submit: () => {
         console.log('submit')
-        if (letterNumber === 4) {
-            console.log('submit word')
-            letterNumber = 0
-            wordNumber += 1
+        if (letterNumber === 5) {
+            let input
+            const row = document.getElementById(`word${wordNumber}`)
+
+            input = row.innerText.replaceAll('\n', '').toUpperCase()
+            console.log('submit word:', input)
+            console.log('submit word.length:', input.length)
+
+            if (input === word) {
+                win = true
+                console.log('Win:', win)
+            } else {
+                letterNumber = 0
+                console.log('letterNumber:', letterNumber)
+                wordNumber += 1
+                console.log('wordNumber:', wordNumber)
+            }
+
             if (wordNumber > 6) {
                 console.log('Done')
             }
@@ -85,7 +100,7 @@ const actions = {
     backspace: () => {
         console.log('backspace letterNumber:', letterNumber)
 
-        if (letterNumber > 0) {
+        if (letterNumber > 0  && !win) {
             let row = document.getElementById(`word${wordNumber}`)
             let cells = row.querySelectorAll('.cell')
             let targetCell = cells[letterNumber - 1]
