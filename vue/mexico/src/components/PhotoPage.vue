@@ -1,20 +1,31 @@
 <template>
- <div class="container">
-            <div class="card"><img src="@/assets/galery1.jpg" alt=""></div>
-            <div class="card"><img src="@/assets/galery2.jpg" alt=""></div>
-            <div class="card"><img src="@/assets/galery3.jpg" alt=""></div>
-            <div class="card"><img src="@/assets/galery4.jpg" alt=""></div>
-        </div>
+	<div class="background"></div>
+	<div class="container">
+		<div class="card"><img src="@/assets/galery1.jpg" alt=""></div>
+		<div class="card"><img src="@/assets/galery2.jpg" alt=""></div>
+		<div class="card"><img src="@/assets/galery3.jpg" alt=""></div>
+		<div class="card"><img src="@/assets/galery4.jpg" alt=""></div>
+	</div>
 </template>
 
 <script>
 export default {
-  name: 'PhotoPage', 
+	name: 'PhotoPage',
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.background {
+	background: url('@/assets/body.jpg');
+	z-index: 1;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    filter: blur(3px);
+}
+
 .container {
 	position: relative;
 	margin-top: 40px;
