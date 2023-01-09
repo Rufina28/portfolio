@@ -1,4 +1,5 @@
 <template>
+  <div class="background"></div>
   <div class="container">
     <h1 class="main-heading">Мексика</h1>
     <div class="slideshow">
@@ -76,6 +77,15 @@ export default {
   90% {
     left: 0%;
   }
+}
+
+.background {
+	background: url('@/assets/mexico.jpg');
+	z-index: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    filter: blur(3px);
 }
 
 * {
