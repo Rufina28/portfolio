@@ -1,10 +1,26 @@
 <template>
 	<div class="background"></div>
 	<div class="container">
-		<div class="card"><img src="@/assets/galery1.jpg" alt=""></div>
-		<div class="card"><img src="@/assets/galery2.jpg" alt=""></div>
-		<div class="card"><img src="@/assets/galery3.jpg" alt=""></div>
-		<div class="card"><img src="@/assets/galery4.jpg" alt=""></div>
+		<div class="card"><img src="@/assets/galery1.jpg" alt="">
+		<div class="name">
+			 <button> Чичен-Ица</button>
+	</div>
+		</div>
+		<div class="card"><img src="@/assets/galery2.jpg" alt="">
+			<div class="name">
+			 <button> Дворец изящных искусств</button>
+	</div>
+		</div>
+		<div class="card"><img src="@/assets/galery3.jpg" alt="">
+			<div class="name">
+			 <button> День мертвых</button>
+	</div>
+		</div>
+		<div class="card"><img src="@/assets/galery4.jpg" alt="">
+			<div class="name">
+			 <button>  Город майя Тулум</button>
+	</div>
+		</div>
 	</div>
 </template>
 
@@ -45,4 +61,14 @@ export default {
 	width: 800px;
 	height: 700px;
 }
+
+button{
+border-radius: 17px;
+    background: #ade6b069;
+    color: black;
+    padding: 8px 12px;
+    font-size: 1.5em;
+	margin-top: 10px;
+}
+
 </style>
