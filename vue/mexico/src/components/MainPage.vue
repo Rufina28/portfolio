@@ -78,7 +78,12 @@ export default {
     left: 0%;
   }
 }
+.main-heading{
+  font-family:Brush Script MT, Brush Script Std, cursive;
+color:green;
+z-index: 1;
 
+}
 .background {
 	background: url('@/assets/mexico.jpg');
 	z-index: 0;
