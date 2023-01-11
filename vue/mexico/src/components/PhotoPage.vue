@@ -1,5 +1,8 @@
 <template>
 	<div class="background"></div>
+	<div class="name">
+	<H2>Достопримечательности Мексики</H2>
+</div>
 	<div class="container">
 		<div class="card"><img src="@/assets/galery1.jpg" alt="">
 		<div class="name">
@@ -35,13 +38,16 @@ export default {
 
 .background {
 	background: url('@/assets/body.jpg');
-	z-index: 1;
+	z-index: -1;
     width: 100%;
     height: 100%;
     position: fixed;
     filter: blur(3px);
 }
 
+.name{
+	margin-top: 50px;
+}
 .container {
 	position: relative;
 	margin-top: 40px;
@@ -50,7 +56,6 @@ export default {
 	grid-template-columns: 1fr 1fr;
 	z-index: 100;
 }
-
 .card {
 	width: 900px;
 	height: 840px;
