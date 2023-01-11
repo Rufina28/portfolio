@@ -22,13 +22,20 @@ text-align: center;
 	text-align: center;
 }
 
+.card{
+	width: 80px;
+	height: 80px;
+	background-color:red; 
+	background-image:url('./img/background-image.jpg'); 
+}
+
 main{
 	display: flex;
 	justify-content: center;
 }
 
 .action{
-	background-color: brown;
+	/*background-color: brown;*/
 	font-size: 1.2em;
     padding: 12px 24px;
 }
