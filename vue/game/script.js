@@ -26,7 +26,7 @@ banner.setAttribute('src', 'img/screen.jpg');
 banner.classList.add('banner');
 
 const gameHeader = document.getElementById('game-header');
-gameHeader.after(banner);
+//gameHeader.after(banner);
 
 function handleStartButtonClick() {
    gameField.innerHTML = '';
@@ -51,6 +51,23 @@ usedGm.push(selectedGm);
 
         }
 cardGms.sort(() => Math.random() - 0.5);
+
+let iterator = 0;
+for (let i = 0; i< settings.height; i++) {
+    const row = document.createElement('div');
+    card.classList.add('row');
+    
+
+for (let i = 0; i< settings.with; i++) {
+    const card = document.createElement('div');
+    row.classList.add('card');
+    card.dataset.gm = cardGms[iterator];
+
+row.appendChild(card);
+    iterator++;
+}
+ gameField.appendChild
+}
            
 const startButton = document.getElementById('start-button')
 startButton.addEventListener ('click', handleStartButtonClick);
