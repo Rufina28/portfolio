@@ -13,6 +13,11 @@ const Gm=[
     'persona12.png',
 ];
 
+const settings = {
+    with:4,
+    height: 3
+}
+
 const gameField = document.getElementById('game-field');
 
 const bannerGm ='screen.jpg';
@@ -21,11 +26,31 @@ banner.setAttribute('src', 'img/screen.jpg');
 banner.classList.add('banner');
 
 const gameHeader = document.getElementById('game-header');
-//gameHeader.after(banner);
+gameHeader.after(banner);
 
 function handleStartButtonClick() {
-   gameField.innerHTML = '<div class="card"></div>';
+   gameField.innerHTML = '';
 }
 
-const startButton = document.getElementById('start-button');
-startButton.addEventListener('click', handleStartButtonClick);
+const cardsCount = settings.with * settings.height;
+    const useGm = [];
+    const cardGms = [];
+
+    for (let i = 0; i< cardsCount; i++) {
+        let selectedGm;
+        if (i < cardsCount / 2) {
+const cardGmIndex = Math.floor(Math.random() *Gms.length);
+
+selectedGm = Gms[cardGmIndex];
+usedGm.push(selectedGm);
+        } else {
+            selectedGm = usedGm.pop();
+        }
+
+        cardGms.push(selectedGm); 
+
+        }
+cardGms.sort(() => Math.random() - 0.5);
+           
+const startButton = document.getElementById('start-button')
+startButton.addEventListener ('click', handleStartButtonClick);
