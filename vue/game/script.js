@@ -15,7 +15,7 @@ const Gm=[
 
 const settings = {
     with:4,
-    height: 3
+    height: 5
 }
 
 const gameField = document.getElementById('game-field');
