@@ -3,9 +3,9 @@
     <nav class="menu">
       <ul>
         <li><a href="#" @click="navigate('home')">Главная</a></li>
-        <li><a href="#info" @click="navigate('info')">Информация</a></li>
+        <li><a href="#info" @click="navigate('info')">Города</a></li>
         <li><a href="#culture" @click="navigate('culture')">Культура</a></li>
-        <li><a href="#photo" @click="navigate('photo')">Фото</a></li>
+        <li><a href="#photo" @click="navigate('photo')">Достопримечательности</a></li>
         <input type="text" placeholder="Поиск">
       </ul>
     </nav>
