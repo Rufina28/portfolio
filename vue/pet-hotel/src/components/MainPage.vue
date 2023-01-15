@@ -1,16 +1,27 @@
 <template>
-   <div id="carousel" class="carousel">
-                <button class="arrow prev">⇦</button>
-                <div class="gallery">
-                    <ul>
-                        <li><img src=@/assets/body1.jpg></li>
-                        <li><img src=@/assets/body2.jpg></li>
-                        <li><img src=@/assets/body3.jpg></li>
-                        <li><img src=@/assets/body4.jpg></li>
-                    </ul>
-                </div>
-                <button id="next" class="arrow next">⇨</button>
-            </div>
+  <div class="background"></div>
+  <div id="carousel" class="carousel">
+    <button class="arrow prev">⇦</button>
+    <div class="gallery">
+      <ul>
+        <li><img src="@/assets/body1.jpg"></li>
+        <li><img src="@/assets/body2.jpg"></li>
+        <li><img src="@/assets/body3.jpg"></li>
+        <li><img src="@/assets/body4.jpg"></li>
+      </ul>
+    </div>
+    <button id="next" class="arrow next">⇨</button>
+  </div>
+  <footer>
+    <div class="info">
+      <ul>
+        <li>г.Новосибирск ул.Собачья, дом 32</li>
+        <li>Круглосуточно</li>
+        <li>+7 383 319 87 87</li>
+        <li><a href="#"><img src="@/assets/vk.jpg"></a></li>
+      </ul>
+    </div>
+  </footer>
 </template>
 
 <script>
@@ -24,6 +35,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.background {
+  background: url('@/assets/body.jpg');
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -1;
+}
+
 .carousel {
   position: relative;
   width: 100%;
@@ -47,6 +66,7 @@ export default {
   color: #444;
   display: block;
 }
+
 .arrow:hover {
   background: #ccc;
   cursor: pointer;
@@ -91,9 +111,14 @@ export default {
   height: 50px;
 }
 
-ul {display: flex;
+ul {
+  display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
 
+footer {
+  font-size: 1.1rem;
+  font-family: arial;
+}
 </style>

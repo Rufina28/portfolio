@@ -1,12 +1,12 @@
 <template>
   <header>
-            <nav class="menu">
-                <ul>
-                    <li><a href="#" @click="navigate('home')">Главная</a></li>
-                    <li><a href="#services" @click="navigate('services')">Услуги</a></li>
-                    <li><a href="#admission" @click="navigate('admission')">Условия приема</a></li>
-                </ul>
-            </nav>
+    <nav class="menu">
+      <ul>
+        <li><a href="#" @click="navigate('home')">Главная</a></li>
+        <li><a href="#services" @click="navigate('services')">Услуги</a></li>
+        <li><a href="#admission" @click="navigate('admission')">Условия приема</a></li>
+      </ul>
+    </nav>
   </header>
 </template>
 
@@ -30,7 +30,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 nav ul {
   display: flex;
   justify-content: space-around;
@@ -43,5 +42,4 @@ li {
   list-style-type: none;
   color: blanchedalmond;
 }
-
 </style>
