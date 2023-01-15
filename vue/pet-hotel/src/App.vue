@@ -2,11 +2,13 @@
   <PageHeader msg="Welcome to pet-hotel Vue.js App"/>
 
   <MainPage v-if="page === 'home'"/>
+  <ServicesPage v-if="page === 'Services'"/>
 </template>
 
 <script>
 import PageHeader from './components/PageHeader.vue'
 import MainPage from './components/MainPage.vue'
+import ServicesPage from './components/ServicesPage.vue'
 
 export default {
   name: 'App',
@@ -18,6 +20,7 @@ export default {
   components: {
     PageHeader,
     MainPage,
+    ServicesPage,
   },
   beforeMount: function() {
     let path = window.location.hash.replace('#', '')

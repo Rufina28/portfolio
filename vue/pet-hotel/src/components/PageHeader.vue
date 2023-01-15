@@ -1,9 +1,10 @@
 <template>
   <header>
+    <div class="background"></div>
     <nav class="menu">
       <ul>
         <li><a href="#" @click="navigate('home')">Главная</a></li>
-        <li><a href="#services" @click="navigate('services')">Услуги</a></li>
+        <li><a href="#Services" @click="navigate('Services')">Услуги</a></li>
         <li><a href="#admission" @click="navigate('admission')">Условия приема</a></li>
       </ul>
     </nav>
@@ -30,6 +31,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.background {
+  background: black;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -1;
+}
+
 nav ul {
   display: flex;
   justify-content: space-around;
