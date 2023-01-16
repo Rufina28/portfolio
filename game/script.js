@@ -28,6 +28,10 @@ banner.classList.add('banner');
 const gameHeader = document.getElementById('game-header');
 //gameHeader.after(banner);
 
+function handleCardClick(event){
+console.log(event);
+}
+
 function handleStartButtonClick() {
     gameField.innerHTML = '';
 }
@@ -63,6 +67,7 @@ for (let i = 0; i < settings.height; i++) {
         card.classList.add('row');
 
         card.dataset.gm = cardGms[iterator];
+        card.addEventListener('click', handleCardClick)
 
         row.appendChild(card);
         iterator++;

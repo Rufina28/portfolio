@@ -26,12 +26,15 @@ text-align: center;
 	width: 80px;
 	height: 80px;
 	background-color:red;
-	background-image:url('./img/background-image.jpg'); 
+	/*background:url('./img/background-image.jpg'); */
+	margin: 6px;
 }
 
 .row{
 
 	display: flex;
+	
+	
 }
 
 main{
