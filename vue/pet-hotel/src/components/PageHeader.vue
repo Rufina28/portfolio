@@ -5,7 +5,7 @@
       <ul>
         <li><a href="#" @click="navigate('home')">Главная</a></li>
         <li><a href="#Services" @click="navigate('Services')">Услуги</a></li>
-        <li><a href="#admission" @click="navigate('admission')">Условия приема</a></li>
+        <li><a href="#Admission" @click="navigate('Admission')">Условия приема</a></li>
       </ul>
     </nav>
   </header>

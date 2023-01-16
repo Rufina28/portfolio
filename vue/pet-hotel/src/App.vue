@@ -3,12 +3,15 @@
 
   <MainPage v-if="page === 'home'"/>
   <ServicesPage v-if="page === 'Services'"/>
+  <AdmissionPage v-if="page === 'Admission'"/>
+  
 </template>
 
 <script>
 import PageHeader from './components/PageHeader.vue'
 import MainPage from './components/MainPage.vue'
 import ServicesPage from './components/ServicesPage.vue'
+import AdmissionPage from './components/AdmissionPage.vue'
 
 export default {
   name: 'App',
@@ -21,6 +24,7 @@ export default {
     PageHeader,
     MainPage,
     ServicesPage,
+    AdmissionPage,
   },
   beforeMount: function() {
     let path = window.location.hash.replace('#', '')
