@@ -32,7 +32,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .background {
-  background: black;
+ /* background: black;*/
   width: 100%;
   height: 100%;
   position: fixed;
@@ -51,4 +51,18 @@ li {
   list-style-type: none;
   color: blanchedalmond;
 }
+
+a {
+  color: rgb(214, 192, 126);
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  text-decoration: none;
+}
+
+.menu{
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 </style>

@@ -32,6 +32,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+}
 
 ul {
   display: flex;
@@ -39,12 +45,13 @@ ul {
 }
 
 a {
-  color: black;
+  color: rgb(214, 192, 126);
   font-family: Comic Sans MS, Comic Sans, cursive;
   text-decoration: none;
 }
 
 li {
   list-style-type: none;
+
 }
 </style>

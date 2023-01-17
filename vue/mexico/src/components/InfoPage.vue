@@ -186,5 +186,5 @@ summary::-webkit-details-marker {
 }
 details[open]>summary::before {
     content: '-';
-}
+}*/
 </style>

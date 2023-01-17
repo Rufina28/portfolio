@@ -164,7 +164,7 @@ export default {
   width: 100%;
   height: 100%;
   position: fixed;
-  filter: blur(3px);
+  filter: blur(10px);
 }
 
 .info {

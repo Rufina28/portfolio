@@ -31,6 +31,25 @@ export default {
     msg: String
   }
 }
+window.onload = () => {
+  const rightBtn = document.getElementById('next')
+  const gallery = document.querySelector('.gallery ul')
+  const STEP = 500
+
+  rightBtn.addEventListener('click', (e) => {
+    // console.log('rightBtn event:', e)
+    let left = parseInt(gallery.style.left)
+    let width = parseInt(gallery.style.width)
+    console.log('gallery.style.left:', left)
+
+    if (!left) {
+      gallery.style.left = 0
+    }
+
+    gallery.style.left = `${left - STEP}px`
+    console.log('gallery.style.left:', gallery.style.left)
+  })
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -105,6 +124,9 @@ export default {
 
 .info {
   color: rgb(214, 192, 126);
+  display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .info img {
