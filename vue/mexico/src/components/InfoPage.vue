@@ -27,7 +27,10 @@
       </div>
       <div class='imgblock'>
         <img src='@/assets/merida.jpg'>
-        <span>Мерида</span>
+        <details>
+    <summary>Мерида</summary>
+    <p>Мехико – живописная столица и самый густонаселённый город Мексики, но на этом список его достижений не заканчивается. Протяжённостью столица уступает только Токио и Нью-Йорку, а в пределах Латинской Америки и вовсе занимает лидирующую позицию. Мехико – центр социальной, экономической, научной и политической сфер. Мода, развлечения, туризм, искусство и культура – всё это делает город главной ареной страны, где ежегодно разворачиваются политические митинги, красочные фестивали и многолюдные празднества.</p>
+</details>
       </div>
       <div class='imgblock'>
         <img src='@/assets/acapulco.jpg'>
@@ -122,4 +125,66 @@ p {
 	height: 900px;
 	width: 1800px;
 }*/
+
+details {
+    min-height: 5px;
+    padding: 25px 70px 25px 25px;
+    margin: 0 auto;
+    position: relative;
+    font-size: 22px;
+    border: 1px solid #333;
+    border-radius: 10px;
+    box-sizing: border-box;
+    transition: all .3s;
+}
+
+details+details {
+    margin-top: 20px;
+}
+
+details[open] {
+    min-height: 50px;
+}
+
+details[open] summary ~ * {
+  animation: anspl .3s cubic-bezier(.52,.41,.75,.74);
+}
+
+@keyframes anspl {
+  0%    {opacity: 0; transform: translateY(-50px)}
+  100%  {opacity: 1; transform: translateY(0)}
+}
+
+details p {
+    color: #444;
+    font-weight: 400;
+    margin: 15px 0;
+}
+
+details p:last-child {
+    margin-bottom: 0px;
+}
+
+summary {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+summary:focus {
+    outline: none;
+}
+
+summary::-webkit-details-marker {
+    display: none
+}
+
+/*summary::before {
+    content: '+';
+    padding-right: 0.5em;
+}
+details[open]>summary::before {
+    content: '-';
+}
 </style>
