@@ -13,14 +13,36 @@
         губах!</p>
     </div>
     <section>
-      <div class='imgblock'>
+      <div class="imgblock" title="Показать детальную информацию" @click="showDetails('mexico')">
+        <!-- двойные кавычки в html -->
         <img src='@/assets/mexico1.jpg'>
         <span>Мехико</span>
       </div>
-      <div class='imgblock'>
+      <div class="details" v-if="city === 'mexico'">
+        <img src='@/assets/mexico1.jpg'><br/>
+        МехикоМехикоМехикоМехикоМехикоМехикоМехико
+        МехикоМехикоМехикоМехикоМехикоМехикоМехикоМехико<br>
+        МехикоМехикоМехикоМехикоМехикоМехикоМехико
+        МехикоМехикоМехикоМехикоМехикоМехикоМехикоМехико<br />
+
+        МехикоМехикоМехикоМехикоМехикоМехикоМехико
+        МехикоМехикоМехикоМехикоМехикоМехикоМехикоМехико<br>
+        МехикоМехикоМехикоМехикоМехикоМехикоМехико
+        МехикоМехикоМехикоМехикоМехикоМехикоМехикоМехико
+      </div>
+
+      <div class='imgblock' @click="showDetails('kankun')">
         <img src='@/assets/cancun.jpg'>
         <span>Канкун</span>
       </div>
+      <div class="details" v-if="city === 'kankun'">
+        <img src='@/assets/cancun.jpg'><br/>
+        Канкун КанкунКанкун КанкунКанкун vКанкунКанкун КанкунКанкунv<br>
+        Канкун КанкунКанкун КанкунКанкун vКанкунКанкун КанкунКанкунv<br />
+        Канкун КанкунКанкун КанкунКанкун vКанкунКанкун КанкунКанкунv<br>
+        Канкун КанкунКанкун КанкунКанкун vКанкунКанкун КанкунКанкунv
+      </div>
+
       <div class='imgblock'>
         <img src='@/assets/guadalajara.jpg'>
         <span>Гвадалахара</span>
@@ -28,9 +50,13 @@
       <div class='imgblock'>
         <img src='@/assets/merida.jpg'>
         <details>
-    <summary>Мерида</summary>
-    <p>Мехико – живописная столица и самый густонаселённый город Мексики, но на этом список его достижений не заканчивается. Протяжённостью столица уступает только Токио и Нью-Йорку, а в пределах Латинской Америки и вовсе занимает лидирующую позицию. Мехико – центр социальной, экономической, научной и политической сфер. Мода, развлечения, туризм, искусство и культура – всё это делает город главной ареной страны, где ежегодно разворачиваются политические митинги, красочные фестивали и многолюдные празднества.</p>
-</details>
+          <summary>Мерида</summary>
+          <p>Мехико – живописная столица и самый густонаселённый город Мексики, но на этом список его достижений не
+            заканчивается. Протяжённостью столица уступает только Токио и Нью-Йорку, а в пределах Латинской Америки и
+            вовсе занимает лидирующую позицию. Мехико – центр социальной, экономической, научной и политической сфер.
+            Мода, развлечения, туризм, искусство и культура – всё это делает город главной ареной страны, где ежегодно
+            разворачиваются политические митинги, красочные фестивали и многолюдные празднества.</p>
+        </details>
       </div>
       <div class='imgblock'>
         <img src='@/assets/acapulco.jpg'>
@@ -48,11 +74,11 @@
         <img src='@/assets/tijuana.jpg'>
         <span>Тихуана</span>
       </div>
-        <div class='imgblock'>
+      <div class='imgblock'>
         <img src='@/assets/ciudadjuarez.jpg'>
         <span>Cьюдад-Хуарес</span>
       </div>
-        <div class='imgblock'>
+      <div class='imgblock'>
         <img src='@/assets/carmen.jpg'>
         <span>Плайя-дель-Кармен</span>
       </div>
@@ -79,17 +105,40 @@
 <script>
 export default {
   name: 'InfoPage',
+  data: function () {
+    return {
+      city: null,
+    }
+  },
+  methods: {
+    showDetails: function (city) {
+      console.log('city:', city)
+      this.city = city
+    },
+  },
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+@keyframes anspl {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0)
+  }
+}
+
 .background {
-	background: url('@/assets/bodyinfo.jpg');
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    z-index: -1;
+  background: url('@/assets/bodyinfo.jpg');
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -1;
 }
 
 p {
@@ -98,9 +147,17 @@ p {
   font-size: 20px;
 }
 
+section {
+  transition: .2s;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .imgblock {
   position: relative;
   display: inline-block;
+  cursor: pointer;
 }
 
 .imgblock img {
@@ -126,58 +183,62 @@ p {
 	width: 1800px;
 }*/
 
+.details {
+  padding: 20px;
+}
+
+.details>img {
+  height: 460px;
+  width: 550px;
+}
+
 details {
-    min-height: 5px;
-    padding: 25px 70px 25px 25px;
-    margin: 0 auto;
-    position: relative;
-    font-size: 22px;
-    border: 1px solid #333;
-    border-radius: 10px;
-    box-sizing: border-box;
-    transition: all .3s;
+  min-height: 5px;
+  padding: 25px 70px 25px 25px;
+  margin: 0 auto;
+  position: relative;
+  font-size: 22px;
+  border: 1px solid #333;
+  border-radius: 10px;
+  box-sizing: border-box;
+  transition: all .3s;
 }
 
 details+details {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 details[open] {
-    min-height: 50px;
+  min-height: 50px;
 }
 
-details[open] summary ~ * {
-  animation: anspl .3s cubic-bezier(.52,.41,.75,.74);
-}
-
-@keyframes anspl {
-  0%    {opacity: 0; transform: translateY(-50px)}
-  100%  {opacity: 1; transform: translateY(0)}
+details[open] summary~* {
+  animation: anspl .3s cubic-bezier(.52, .41, .75, .74);
 }
 
 details p {
-    color: #444;
-    font-weight: 400;
-    margin: 15px 0;
+  color: #444;
+  font-weight: 400;
+  margin: 15px 0;
 }
 
 details p:last-child {
-    margin-bottom: 0px;
+  margin-bottom: 0px;
 }
 
 summary {
-    display: flex;
-    align-items: center;
-    font-weight: 500;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 summary:focus {
-    outline: none;
+  outline: none;
 }
 
 summary::-webkit-details-marker {
-    display: none
+  display: none
 }
 
 /*summary::before {
