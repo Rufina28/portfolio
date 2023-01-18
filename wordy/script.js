@@ -44,7 +44,7 @@ window.onload = function () {
         let cells = row.querySelectorAll('.cell')
 
         if (cells[letterNumber]) {
-           cells[letterNumber].innerText = key
+            cells[letterNumber].innerText = key
             if (letterNumber < 5) {
                 letterNumber += 1
             }
@@ -103,6 +103,7 @@ const actions = {
     },
     paintWord: (input) => {
         console.log('paintWord:', input)
+        const doneLetters = []
 
         for (let i = 0; i < 5; i++) {
             let key = input[i]
@@ -111,18 +112,30 @@ const actions = {
             console.log('key:', key)
 
             console.log('hasLetter:', hasLetter)
-    
+
             let placeLetter = word[i] === key
-    
+
             console.log('placeLetter:', placeLetter)
 
             let row = document.getElementById(`word${win ? wordNumber : wordNumber - 1}`)
             let cells = row.querySelectorAll('.cell')
-    
+
             if (hasLetter && placeLetter) {
-                cells[i].classList.add('place')
+                if (!doneLetters.includes(key)) {
+                    cells[i].classList.add('place')
+                    // запомнить букву которую уже обработали
+                    doneLetters.push(key)
+                } else {
+                    cells[i].classList.add('wrong')
+                }
             } else if (hasLetter) {
-                cells[i].classList.add('letter')
+                if (!doneLetters.includes(key)) {
+                    cells[i].classList.add('letter')
+                    // запомнить букву которую уже обработали
+                    doneLetters.push(key)
+                } else {
+                    cells[i].classList.add('wrong')
+                }
             } else {
                 cells[i].classList.add('wrong')
             }
