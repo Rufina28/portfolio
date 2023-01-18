@@ -37,12 +37,38 @@ export default {
 </script>
 
 <style>
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 0px;
+  font-size: 25px;
+  min-height: 700px;
 }
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+
+  list-style-type: none;
+}
+
+a {
+  color: rgb(214, 192, 126);
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  text-decoration: none;
+}
+
 </style>

@@ -12,7 +12,7 @@
     </div>
     <button id="next" class="arrow next">⇨</button>
   </div>
-  <footer>
+  <footer> <!-- Перенести в отдельный компонент -->
     <div class="info">
       <ul>
         <li>г.Новосибирск ул.Собачья, дом 32</li>
@@ -37,10 +37,11 @@ window.onload = () => {
   const STEP = 500
 
   rightBtn.addEventListener('click', (e) => {
-    // console.log('rightBtn event:', e)
+    console.log('rightBtn event:', e.target)
     let left = parseInt(gallery.style.left)
     let width = parseInt(gallery.style.width)
     console.log('gallery.style.left:', left)
+    console.log('gallery.style.width:', width)
 
     if (!left) {
       gallery.style.left = 0
@@ -68,6 +69,7 @@ window.onload = () => {
   padding: 10px 40px;
   box-sizing: border-box;
   display: flex;
+  /* margin-bottom: 350px; */
 }
 
 .carousel img {
@@ -82,7 +84,7 @@ window.onload = () => {
   background: rgb(8, 8, 8);
   font-size: 24px;
   line-height: 24px;
-  color: #444;
+  color: rgb(29, 28, 28);
   display: block;
 }
 

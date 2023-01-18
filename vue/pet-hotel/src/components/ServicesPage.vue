@@ -60,6 +60,7 @@ export default {
   width: 900px;
   height: 840px;
   color: rgb(214, 192, 126);
+  margin-bottom: 87px;
 }
 
 .card img {

@@ -5,7 +5,7 @@
       <ul>
         <li><a href="#" @click="navigate('home')">Главная</a></li>
         <li><a href="#Services" @click="navigate('Services')">Услуги</a></li>
-        <li><a href="#Admission" @click="navigate('Admission')">Условия приема</a></li>
+        <li><a href="#Admission" @click="navigate('Admission')">Правила</a></li>
       </ul>
     </nav>
   </header>
@@ -32,7 +32,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .background {
- /* background: black;*/
+  background: black;
   width: 100%;
   height: 100%;
   position: fixed;
@@ -56,13 +56,6 @@ a {
   color: rgb(214, 192, 126);
   font-family: Comic Sans MS, Comic Sans, cursive;
   text-decoration: none;
-}
-
-.menu{
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 </style>

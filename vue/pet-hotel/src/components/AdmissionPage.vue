@@ -48,6 +48,7 @@ p {
 main {
   margin-left: 40px;
   font-size: 22px;
+  text-align: initial;
 }
 
 
