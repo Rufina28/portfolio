@@ -86,6 +86,11 @@ export default {
     left: 0%;
   }
 }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
 .main-heading{
   font-family:Brush Script MT, Brush Script Std, cursive;
 color:green;
