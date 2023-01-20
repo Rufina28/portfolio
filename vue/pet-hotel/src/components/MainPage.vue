@@ -12,17 +12,7 @@
     </div>
     <button id="next" class="arrow next">⇨</button>
   </div>
-  <footer> <!-- Перенести в отдельный компонент -->
-    <div class="info">
-      <ul>
-        <li>г.Новосибирск ул.Собачья, дом 32</li>
-        <li>Круглосуточно</li>
-        <li>+7 383 319 87 87</li>
-        <li><a href="#"><img src="@/assets/vk.jpg"></a></li>
-      </ul>
-    </div>
-  </footer>
-</template>
+  </template>
 
 <script>
 export default {
