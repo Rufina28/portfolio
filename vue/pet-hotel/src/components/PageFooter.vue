@@ -1,5 +1,5 @@
 <template>
-<footer> 
+  <footer>
     <div class="info">
       <ul>
         <li>г.Новосибирск ул.Собачья, дом 32</li>
@@ -31,8 +31,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
-
 .background {
   background: black;
   width: 100%;
@@ -59,5 +57,4 @@ a {
   font-family: Comic Sans MS, Comic Sans, cursive;
   text-decoration: none;
 }
-
 </style>
