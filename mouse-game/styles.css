@@ -1,43 +1,3 @@
-<template>
- <div class="game">
-            <div id="mouse"></div>
-            <div id="cheese"></div>
-            <div id="cactus"></div>
-        </div>
-</template>
-
-<script>
-export default {
-  name: 'MainPage',
-  props: {
-    msg: String
-  }
-}
-console.log('Mouse game')
-
-window.onload = () => {
-    console.log('window loaded')
-
-    const mouse = document.getElementById('mouse')
-
-    console.log('mouse:', mouse)
-
-    window.addEventListener('keypress', () => {
-        console.log('jupm')
-
-        mouse.classList.add('jump')
-
-        setTimeout(() => {
-            mouse.classList.remove('jump')
-        }, 800)
-    })
-}
-
-</script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
 @keyframes cheese {
 	0% {
 		left: 110%;
@@ -109,7 +69,7 @@ body {
 	width: 1280px;
 	height: 720px;
 	margin: auto;
-	background: url('@/assets/mouse-run.png');
+	background: url('./img/mouse-run.png');
 	background-size: contain;
 	overflow: hidden;
 	animation: run 8s;
@@ -130,7 +90,7 @@ body {
 #mouse {
 	width: 90px;
 	height: 90px;
-	background-image: url('@/assets/mouse.png');
+	background-image: url(./img/mouse.png);
 	box-sizing: border-box;
 	background-size: contain;
 	position: absolute;
@@ -144,7 +104,7 @@ body {
 #cheese {
 	width: 140px;
 	height: 140px;
-	background-image: url('@/assets/cheese.png');
+	background-image: url(./img/cheese.png);
 	box-sizing: border-box;
 	background-size: contain;
 	position: absolute;
@@ -155,7 +115,7 @@ body {
 #cactus {
 	width: 140px;
 	height: 140px;
-	background-image: url('@/assets/cactus.png');
+	background-image: url('./img/cactus.png');
 	box-sizing: border-box;
 	background-size: contain;
 	position: absolute;
@@ -163,4 +123,7 @@ body {
 	animation: cactus 4s infinite linear;
 }
 
-</style>
+/* 
+.animate {
+	animation: jump 500ms infinite;
+} */
