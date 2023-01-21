@@ -130,9 +130,4 @@ ul {
   justify-content: space-evenly;
   align-items: center;
 }
-
-footer {
-  font-size: 1.1rem;
-  font-family: arial;
-}
 </style>
