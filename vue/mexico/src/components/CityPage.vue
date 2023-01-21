@@ -143,7 +143,7 @@
 
 <script>
 export default {
-  name: 'InfoPage',
+  name: 'CityPage',
   data: function () {
     return {
       city: null,

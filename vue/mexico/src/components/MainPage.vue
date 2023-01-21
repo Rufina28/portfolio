@@ -19,14 +19,6 @@
       </div>
     </div>
   </div>
-  <footer>
-    <div class="communications">
-      <button> Twiter</button>
-      <button> VKontakte</button>
-      <button> Facebook</button>
-      <a href="https://www.youtube.com/watch?v=gX2-TzGPXoI">YouTube</a>
-    </div>
-  </footer>
 </template>
 
 <script>
@@ -205,12 +197,6 @@ z-index: 1;
 .slide-btn-3:focus~.slideshow-wrapper {
   animation: none;
   left: -200%;
-}
-
-.communications{
-  margin-top: 300px;
-    display: flex;
-    justify-content: space-around;
 }
 
 a{
