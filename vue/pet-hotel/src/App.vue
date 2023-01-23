@@ -1,10 +1,11 @@
 <template>
-  <PageHeader msg="Welcome to pet-hotel Vue.js App"/>
+  <PageHeader/>
 
   <MainPage v-if="page === 'home'"/>
   <ServicesPage v-if="page === 'Services'"/>
   <AdmissionPage v-if="page === 'Admission'"/>
-  
+
+  <PageFooter/>
 </template>
 
 <script>
@@ -12,6 +13,7 @@ import PageHeader from './components/PageHeader.vue'
 import MainPage from './components/MainPage.vue'
 import ServicesPage from './components/ServicesPage.vue'
 import AdmissionPage from './components/AdmissionPage.vue'
+import PageFooter from './components/PageFooter.vue'
 
 export default {
   name: 'App',
@@ -25,6 +27,7 @@ export default {
     MainPage,
     ServicesPage,
     AdmissionPage,
+    PageFooter,
   },
   beforeMount: function() {
     let path = window.location.hash.replace('#', '')
