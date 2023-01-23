@@ -5,7 +5,7 @@
         <li>г.Новосибирск ул.Собачья, дом 32</li>
         <li>Круглосуточно</li>
         <li>+7 383 319 87 87</li>
-        <li><a href="#"><img src="@/assets/vk.jpg"></a></li>
+        <li><a href="https://VK.com"><img src="@/assets/Vk.png"></a></li>
       </ul>
     </div>
   </footer>
@@ -46,6 +46,11 @@ nav ul {
   padding: 0;
 }
 
+ul{
+  display: flex;
+    justify-content: space-between;
+}
+
 li {
 
   list-style-type: none;
@@ -57,4 +62,12 @@ a {
   font-family: Comic Sans MS, Comic Sans, cursive;
   text-decoration: none;
 }
+
+footer {
+position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: -130px;
+}
+
 </style>

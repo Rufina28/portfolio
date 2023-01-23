@@ -28,11 +28,9 @@
       НЕКАСТРИРОВАННЫЕ СОБАКИ СТАРШЕ 7 МЕСЯЦЕВ НЕ ПРИНИМАЮТСЯ!
     </p>
   </main>
-  <video autoplay muted loop class="background-video">
-    <source src="storm.mp4" type="video/mp4">
-  </video>
   <div class="content">
-    <h1>Гостиница для собак</h1>
+  <h1>Гостиница для собак</h1>
+  <video src="@/assets/video.mp4" controls></video>
   </div>
 
 </template>
@@ -56,4 +54,10 @@ main {
   font-size: 22px;
   text-align: initial;
 }
+
+.video{
+  width: 1000px;
+    height: 1000px;
+}
+
 </style>
