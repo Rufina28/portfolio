@@ -28,7 +28,7 @@ export default {
 footer {
   font-size: 1.1rem;
   font-family: arial;
-  position: absolute;
+  /*position: absolute;*/
   bottom: 0;
   width: 100%;
 }
