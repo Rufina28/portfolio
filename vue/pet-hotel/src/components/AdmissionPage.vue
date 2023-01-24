@@ -29,8 +29,7 @@
     </p>
   </main>
   <div class="content">
-  <h1>Гостиница для собак</h1>
-  <video src="@/assets/video.mp4" controls></video>
+    <video src="@/assets/video.mp4" controls></video>
   </div>
 
 </template>
@@ -55,9 +54,13 @@ main {
   text-align: initial;
 }
 
-.video{
-  width: 1000px;
-    height: 1000px;
+.content {
+  display: flex;
+  justify-content: center;
 }
 
+.video {
+  width: 1000px;
+  height: 1000px;
+}
 </style>
