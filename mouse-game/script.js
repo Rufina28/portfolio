@@ -15,5 +15,17 @@ window.onload = () => {
         setTimeout(() => {
             mouse.classList.remove('jump')
         }, 800)
-    })
+    }, false)
+
+    const start = document.getElementById('start')
+
+    function startGame() {
+        document.querySelector('.game').classList.add('active')
+    }
+
+    start.addEventListener('click', () => {
+        console.log('start')
+
+        startGame()
+    }, false)
 }

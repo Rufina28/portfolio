@@ -70,11 +70,14 @@ body {
 	height: 720px;
 	margin: auto;
 	background: url('./img/mouse-run.png');
-	background-size: contain;
+	background-size: auto;
 	overflow: hidden;
+}
+
+.game.active {
 	animation: run 8s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
 }
 
 /* .game {
@@ -127,3 +130,53 @@ body {
 .animate {
 	animation: jump 500ms infinite;
 } */
+
+.launch {
+	text-align: center;
+	padding: 10px;
+	border-radius: 35px;
+	color: yellow;
+	background: rgb(36 35 35);
+	position: absolute;
+	/* display: none; */
+	top: 45%;
+	left: 42%;
+	font-size: 120px;
+	cursor: pointer;
+	user-select: none;
+}
+
+.loss {
+	width: 560px;
+	height: 200px;
+	text-align: center;
+	border: 3px solid rgb(43, 42, 42);
+	border-radius: 35px;
+	color: yellow;
+	background: rgb(36 35 35);
+	position: absolute;
+	display: none;
+
+}
+
+
+
+h2 {
+	text-align: center;
+	margin-top: 66px;
+	font-size: 44px;
+}
+
+.points {
+	width: 560px;
+	height: 200px;
+	text-align: center;
+	border: 3px solid rgb(43, 42, 42);
+	border-radius: 35px;
+	color: yellow;
+	background: rgb(36 35 35);
+	position: absolute;
+	display: none;
+
+
+}
