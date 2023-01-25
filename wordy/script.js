@@ -108,19 +108,21 @@ const actions = {
         for (let i = 0; i < 5; i++) {
             let key = input[i]
             let hasLetter = word.includes(key)
-
-            console.log('key:', key)
-
-            console.log('hasLetter:', hasLetter)
-
             let placeLetter = word[i] === key
-
-            console.log('placeLetter:', placeLetter)
-
             let row = document.getElementById(`word${win ? wordNumber : wordNumber - 1}`)
             let cells = row.querySelectorAll('.cell')
 
+            console.log('key:', key)
+            console.log('hasLetter:', hasLetter)
+            console.log('placeLetter:', placeLetter)
+
             if (hasLetter && placeLetter) {
+                console.log(`${key} right place`)
+
+                if (doneLetters.includes(key)) {
+                    const keyIndex = doneLetters.indexOf(key)
+                    console.log('keyIndex:', keyIndex)
+                }
                 if (!doneLetters.includes(key)) {
                     cells[i].classList.add('place')
                     // запомнить букву которую уже обработали
