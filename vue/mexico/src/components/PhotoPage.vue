@@ -37,10 +37,10 @@ export default {
 <style scoped>
 .background {
 	background: url('@/assets/body.jpg');
-	z-index: -1;
+	/* z-index: -1;
 	width: 100%;
 	height: 100%;
-	position: fixed;
+	position: fixed; */
 	filter: blur(3px);
 }
 
@@ -51,7 +51,7 @@ export default {
 .container {
 	position: relative;
 	margin-top: 40px;
-	margin-left: 100px;
+	/* margin-left: 100px; */
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	z-index: 100;
@@ -61,6 +61,7 @@ export default {
 	width: 900px;
 	height: 840px;
 	color: rgb(214, 192, 126);
+	margin: auto;
 }
 
 .card img {
@@ -76,4 +77,11 @@ button {
 	font-size: 1.5em;
 	margin-top: 10px;
 }
+
+@media screen and (max-width: 1800px) {
+  .container {
+    grid-template-columns: auto;
+  }
+}
+
 </style>

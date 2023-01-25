@@ -227,12 +227,14 @@ section {
 
 .details {
   padding: 20px;
+  text-align: left;
 }
 
 .details>img {
   height: 460px;
   width: 550px;
   float: left;
+  margin: 10px;
 }
 
 details {
