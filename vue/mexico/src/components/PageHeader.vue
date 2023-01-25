@@ -32,19 +32,31 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+header {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+}
+
+nav {
+  height: 100%;
+}
+
 nav ul {
   display: flex;
   justify-content: space-around;
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
-ul {
+ul li {
+  height: 100%;
   display: flex;
-  justify-content: space-around;
 }
 
 a {
+  margin: auto;
   color: rgb(214, 192, 126);
   font-family: Comic Sans MS, Comic Sans, cursive;
   text-decoration: none;

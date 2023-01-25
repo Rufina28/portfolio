@@ -32,7 +32,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 @keyframes slideshow {
   0% {
     left: 0;
@@ -79,23 +78,27 @@ export default {
   }
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
-.main-heading{
-  font-family:Brush Script MT, Brush Script Std, cursive;
-color:green;
-z-index: 1;
+
+.main-heading {
+  font-family: Brush Script MT, Brush Script Std, cursive;
+  color: green;
+  z-index: 1;
 
 }
+
 .background {
-	background: url('@/assets/mexico.jpg');
-	z-index: -1;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    filter: blur(3px);
+  background: url('@/assets/mexico.jpg');
+  /* z-index: -1;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  filter: blur(3px);
+  top: 0; */
 }
 
 * {
@@ -199,7 +202,7 @@ z-index: 1;
   left: -200%;
 }
 
-a{
+a {
   text-decoration: none;
   color: red;
 }

@@ -1,10 +1,12 @@
 <template>
   <PageHeader/>
 
-  <MainPage v-if="page === 'home'"/>
-  <CityPage v-if="page === 'city'"/>
-  <PhotoPage v-if="page === 'photo'"/>
-  <CulturePage v-if="page === 'culture'"/>
+  <div class="page">
+    <MainPage v-if="page === 'home'"/>
+    <CityPage v-if="page === 'city'"/>
+    <PhotoPage v-if="page === 'photo'"/>
+    <CulturePage v-if="page === 'culture'"/>
+  </div>
 
   <PageFooter/>
 </template>
@@ -49,7 +51,7 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  min-height: 700px;
+  /* min-height: 700px; */
 }
 
 #app {
@@ -60,6 +62,22 @@ html, body {
   color: #2c3e50;
   position: relative;
   height: 100%;
-  min-height: 700px;
+  min-height: 100%;
+}
+
+.page {
+  min-height: 100%;
+  padding-top: 40px;
+  padding-bottom: 60px;
+  box-sizing: border-box;
+}
+
+.background {
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  filter: blur(3px);
+  top: 0;
 }
 </style>

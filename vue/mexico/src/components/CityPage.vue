@@ -174,10 +174,10 @@ export default {
 
 .background {
   background: url('@/assets/bodyinfo.jpg');
-  width: 100%;
+  /* width: 100%;
   height: 100%;
   position: fixed;
-  z-index: -1;
+  z-index: -1; */
 }
 
 p {

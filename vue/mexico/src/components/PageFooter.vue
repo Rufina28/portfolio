@@ -26,11 +26,12 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 footer {
+  height: 60px;
   font-size: 1.1rem;
   font-family: arial;
   /*position: absolute;*/
   bottom: 0;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .communications {
