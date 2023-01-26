@@ -1,9 +1,11 @@
 <template>
   <PageHeader/>
 
+  <div class="page">
   <MainPage v-if="page === 'home'"/>
   <ServicesPage v-if="page === 'Services'"/>
   <AdmissionPage v-if="page === 'Admission'"/>
+</div>
 
   <PageFooter/>
 </template>
@@ -54,6 +56,13 @@ html, body {
   font-size: 25px;
   min-height: 700px;
   position: relative;
+}
+
+.page {
+  min-height: 100%;
+  padding-top: 40px;
+  padding-bottom: 60px;
+  box-sizing: border-box;
 }
 
 nav ul {
