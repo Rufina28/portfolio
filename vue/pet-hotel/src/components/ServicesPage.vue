@@ -77,9 +77,10 @@ export default {
 }
 .container {
   margin-top: 40px;
-  margin-left: 100px;
+  /*margin-left: 100px;*/
   display: grid;
   grid-template-columns: 1fr 1fr;
+  position: relative;
 
 }
 
@@ -87,12 +88,12 @@ export default {
   width: 900px;
   height: 840px;
   color: rgb(214, 192, 126);
-  margin-bottom: 87px;
+  margin: auto;
 }
 
 .card img {
   width: 800px;
-  height: 700px;
+  height: 625px;
 }
 
 .info {
@@ -108,4 +109,11 @@ button {
   padding: 8px 12px;
   font-size: 1.5em;
 }
+
+@media screen and (max-width: 1800px) {
+  .container {
+    grid-template-columns: auto;
+  }
+}
+
 </style>

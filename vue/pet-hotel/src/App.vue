@@ -45,6 +45,7 @@ export default {
 html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 #app {
@@ -52,10 +53,10 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin-top: 0px;
   font-size: 25px;
-  min-height: 700px;
+  min-height: 100%;
   position: relative;
+  height: 100%;
 }
 
 .page {
@@ -83,5 +84,8 @@ a {
   text-decoration: none;
 }
 
+.background {
+  top: 0;
+}
 
 </style>
