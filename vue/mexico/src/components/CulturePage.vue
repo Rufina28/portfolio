@@ -159,7 +159,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .background {
-  background: url('@/assets/culture.jpg');
+  background: url('@/assets/culture2.jpg');
   /* z-index: -1;
   width: 100%;
   height: 100%;
@@ -168,7 +168,7 @@ export default {
 }
 
 .info {
-  color: rgb(181 179 179 / 70%);
+  color: rgb(9 9 9 / 95%);
 
 }
 
@@ -176,6 +176,7 @@ p,
 ul {
   text-align: justify;
   font-size: 20px;
+  margin: 20px;
 }
 
 .photo {

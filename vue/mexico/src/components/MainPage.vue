@@ -92,7 +92,7 @@ body {
 }
 
 .background {
-  background: url('@/assets/mexico.jpg');
+  background: url('@/assets/home.jpg');
   /* z-index: -1;
   width: 100%;
   height: 100%;
