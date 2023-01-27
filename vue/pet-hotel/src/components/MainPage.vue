@@ -1,6 +1,26 @@
 <template>
-  <div class="background"></div>
-  <div id="carousel" class="carousel">
+ <div class="background"></div>
+ <div class="slider">
+    <div class="slider__wrapper">
+      <div class="slider__items">
+        <div class="slider__item">
+          <img class="img-fluid" src="@/assets/body1.jpg" alt="...">
+        </div>
+        <div class="slider__item">
+          <img class="img-fluid" src="@/assets/body2.jpg" alt="..." >
+        </div>
+        <div class="slider__item">
+          <img class="img-fluid" src="@/assets/body3.jpg" alt="...">
+        </div>
+        <div class="slider__item">
+          <img class="img-fluid" src="@/assets/body4.jpg" alt="...">
+        </div>
+      </div>
+    </div>
+    <a class="slider__control slider__control_prev" href="#" role="button" data-slide="prev"></a>
+    <a class="slider__control slider__control_next" href="#" role="button" data-slide="next"></a>
+  </div>
+  <!-- <div id="carousel" class="carousel">
     <button class="arrow prev">⇦</button>
     <div class="gallery">
       <ul>
@@ -11,7 +31,7 @@
       </ul>
     </div>
     <button id="next" class="arrow next">⇨</button>
-  </div>
+  </div>--> временно
   </template>
 
 <script>
@@ -21,26 +41,7 @@ export default {
     msg: String
   }
   
-/*}
-window.onload = () => {
-  const rightBtn = document.getElementById('next')
-  const gallery = document.querySelector('.gallery ul')
-  const STEP = 500
 
-  rightBtn.addEventListener('click', (e) => {
-    console.log('rightBtn event:', e.target)
-    let left = parseInt(gallery.style.left)
-    let width = parseInt(gallery.style.width)
-    console.log('gallery.style.left:', left)
-    console.log('gallery.style.width:', width)
-
-    if (!left) {
-      gallery.style.left = 0
-    }
-
-    gallery.style.left = `${left - STEP}px`
-    console.log('gallery.style.left:', gallery.style.left)
-  })*/
 }
 </script>
 
@@ -54,19 +55,53 @@ window.onload = () => {
   z-index: -1;
 }
 
-.carousel {
+.slider__wrapper {
+    position: relative;
+    overflow: hidden;
+}
+.img-fluid{
+  width: 500px;
+  height: 400px;
+  display: inline-block;
+}
+
+.slider {
+      max-width: 800px;
+    }
+
+    /* дополнительные стили для этого примера */
+    .slider__items {
+      counter-reset: slide;
+    }
+
+    .slider__item {
+      position: relative;
+      counter-increment: slide;
+    }
+
+    .slider__item::after {
+      content: counter(slide);
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      color: #fff;
+      font-style: italic;
+      font-size: 32px;
+      font-weight: bold;
+    }
+/*.carousel {
   position: relative;
   width: 100%;
   padding: 10px 40px;
   box-sizing: border-box;
   display: flex;
-  /* margin-bottom: 350px; */
-}
+   margin-bottom: 350px;
+} 
 
 .carousel img {
   width: 500px;
   height: 500px;
-}
+}*/
 
 .arrow {
   /*position: absolute;*/
@@ -131,4 +166,6 @@ ul {
   justify-content: space-evenly;
   align-items: center;
 }
+
+
 </style>
