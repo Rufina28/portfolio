@@ -20,7 +20,8 @@ export default {
   props: {
     msg: String
   }
-}
+  
+/*}
 window.onload = () => {
   const rightBtn = document.getElementById('next')
   const gallery = document.querySelector('.gallery ul')
@@ -39,7 +40,7 @@ window.onload = () => {
 
     gallery.style.left = `${left - STEP}px`
     console.log('gallery.style.left:', gallery.style.left)
-  })
+  })*/
 }
 </script>
 

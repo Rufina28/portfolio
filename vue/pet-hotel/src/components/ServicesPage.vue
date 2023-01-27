@@ -1,5 +1,25 @@
 <template>
   <div class="background"></div>
+  <div class="modal">
+  <div class="form__item">
+                                    <input type="text" name="name" class="form__body_input _req" placeholder="Имя*">
+                                </div>
+                                <input type="text" name="name" class="form__body_input _req" placeholder="Фамилия">
+                                
+
+                              
+                                <div class="form__item">
+                                  
+                                <input type="text" name="name" class="form__body_input _req" placeholder="Телефон*">
+                              </div>
+                                    <input type="text" name="email" class="form__body_input _req _email" placeholder="Email">
+                                 
+                                <button type="submit" class="form__btn subscribe btn">
+                                    Перезвоните мне
+                                </button>
+                              </div>
+                             
+                    
   <div class="container">
     <div class="card"><img src="@/assets/hotel1.jpg" alt="">
       <div class="info">
@@ -48,6 +68,13 @@ export default {
   z-index: -1;
 }
 
+.modal {
+	width: 350px;
+	height: 256px;
+	padding: 20px 20px;
+	border-radius: 35px;
+	background: rgb(36 35 35);
+}
 .container {
   margin-top: 40px;
   margin-left: 100px;
