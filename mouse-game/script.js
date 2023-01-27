@@ -28,4 +28,16 @@ window.onload = () => {
 
         startGame()
     }, false)
-}
+
+
+        document.querySelector('.cheese').classList.add('active')
+    }
+
+    start.addEventListener('click', () => {
+        console.log('start')
+
+        startGame()
+    }, false)
+
+
+

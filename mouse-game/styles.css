@@ -78,6 +78,7 @@ body {
 	animation: run 8s;
 	animation-iteration-count: infinite;
 	animation-timing-function: linear;
+	/*animation: cheese 3s infinite linear;*/
 }
 
 /* .game {
