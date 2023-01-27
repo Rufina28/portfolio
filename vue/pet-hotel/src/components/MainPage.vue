@@ -79,16 +79,6 @@ export default {
       counter-increment: slide;
     }
 
-    .slider__item::after {
-      content: counter(slide);
-      position: absolute;
-      top: 10px;
-      right: 20px;
-      color: #fff;
-      font-style: italic;
-      font-size: 32px;
-      font-weight: bold;
-    }
 /*.carousel {
   position: relative;
   width: 100%;

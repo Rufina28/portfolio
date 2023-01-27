@@ -1,9 +1,12 @@
 <template>
   <div class="background"></div>
   <div class="modal">
+    <div class="form">
+                             <form action="#" id="form" class="form__body d-flex flex-column">
   <div class="form__item">
                                     <input type="text" name="name" class="form__body_input _req" placeholder="Имя*">
                                 </div>
+                                
                                 <input type="text" name="name" class="form__body_input _req" placeholder="Фамилия">
                                 
 
@@ -17,7 +20,9 @@
                                 <button type="submit" class="form__btn subscribe btn">
                                     Перезвоните мне
                                 </button>
+                             </form>
                               </div>
+  </div>
                              
                     
   <div class="container">
@@ -55,6 +60,7 @@
 <script>
 export default {
   name: 'ServicesPage',
+  
 }
 </script>
 
