@@ -55,6 +55,11 @@ ul li {
   display: flex;
 }
 
+input{
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
 a {
   margin: auto;
   color: rgb(214, 192, 126);
