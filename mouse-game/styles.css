@@ -18,6 +18,16 @@
 	}
 }
 
+@keyframes cactus-up {
+	0% {
+		left: 150%;
+	}
+
+	100% {
+		left: -400px;
+	}
+}
+
 @keyframes cactus {
 	0% {
 		left: 110%;
@@ -30,19 +40,15 @@
 
 @keyframes jump {
 	0% {
-		top: 475px;
+		top: 0;
 	}
 
-	30% {
-		top: 100px;
-	}
-
-	70% {
-		top: 100px;
+	50% {
+		top: -300px;
 	}
 
 	100% {
-		top: 475px;
+		top: 0;
 	}
 }
 
@@ -90,16 +96,31 @@ body {
 		box-sizing: content-box; */
 /* padding: 150px; */
 
+#mouse-on-skate {
+	position: absolute;
+	top: 467px;
+}
+
+#mouse-on-skate.down {
+	top: 467px;
+	z-index: 6;
+}
+
+#mouse-on-skate.up {
+	top: 430px;
+}
 
 #mouse {
 	width: 90px;
 	height: 90px;
-	background-image: url(./img/mouse.png);
+	background-image: url(./img/mouse-small.png);
 	box-sizing: border-box;
 	background-size: contain;
 	background-repeat: repeat;
-	position: absolute;
-	top: 475px;
+	position: relative;
+	z-index: 10;
+	animation-timing-function: ease-in-out;
+	background-repeat: no-repeat;
 }
 
 #skate {
@@ -109,9 +130,9 @@ body {
 	box-sizing: border-box;
 	background-size: contain;
 	background-repeat: no-repeat;
-	position: absolute;
-	top: 555px;
-	left: 12px;
+	position: relative;
+	margin-top: -9px;
+	z-index: 1;
 }
 
 .jump {
@@ -133,20 +154,32 @@ body {
 	animation: cheese 3s infinite linear;
 }
 
-#cactus {
+.cactus {
 	width: 140px;
 	height: 140px;
 	background-image: url('./img/cactus.png');
 	box-sizing: border-box;
 	background-size: contain;
+	background-repeat: no-repeat;
 	position: absolute;
-	top: 440px;
+	top: 450px;
 	left: 110%;
+	z-index: 20;
+}
+
+#cactus-up {
+	top: 400px;
+	left: 130%;
+	z-index: 5;
+}
+
+#cactus-up.active {
+	animation: cactus-up 7s infinite linear;
 }
 
 #cactus.active {
-	animation: cactus 4s infinite linear;
- }
+	animation: cactus 5.5s infinite linear;
+}
 /* 
 .animate {
 	animation: jump 500ms infinite;
