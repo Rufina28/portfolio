@@ -43,6 +43,16 @@ window.onload = () => {
         document.querySelector('#cheese').classList.add('active')
         document.querySelector('#cactus-up').classList.add('active')
         document.querySelector('#cactus').classList.add('active')
+
+        gameStarted()
+    }
+
+    function gameStarted() {
+        console.log('mouseOnSkate:', mouseOnSkate)
+        console.log('mouse:', mouse)
+        console.log('mouseOnSkate.style.top:', mouseOnSkate.style.top)
+
+        requestAnimationFrame(gameStarted)
     }
 
     // start.addEventListener('click', () => {
