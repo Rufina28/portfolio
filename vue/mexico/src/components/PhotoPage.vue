@@ -147,12 +147,12 @@ button {
   100% {
     transform: rotate(-300deg);
   }
-}
+}*/
 
 @media screen and (max-width: 1800px) {
   .container {
     grid-template-columns: auto;
   }
-}*/
+}
 
 </style>
