@@ -174,16 +174,13 @@ export default {
 
 .background {
   background: url('@/assets/bodyinfo.jpg');
-  /* width: 100%;
-  height: 100%;
-  position: fixed;
-  z-index: -1; */
 }
 
 p {
   color: azure;
   text-align: justify;
   font-size: 20px;
+  margin: 20px;
 }
 
 section {
@@ -208,7 +205,6 @@ section {
 }
 
 .imgblock span {
-  /*background: rgba(0,0,0,0.7); (полупрозрачность)*/
   background: #222;
   color: #fff;
   border-radius: 2px;
@@ -218,12 +214,6 @@ section {
   font-size: 18px;
   padding: 3px 5px;
 }
-
-/*.img {
-	background: url('@/assets/information.jpg');
-	height: 900px;
-	width: 1800px;
-}*/
 
 .details {
   padding: 20px;
@@ -249,48 +239,4 @@ details {
   transition: all .3s;
 }
 
-details+details {
-  margin-top: 20px;
-}
-
-details[open] {
-  min-height: 50px;
-}
-
-details[open] summary~* {
-  animation: anspl .3s cubic-bezier(.52, .41, .75, .74);
-}
-
-details p {
-  color: rgb(187, 183, 183);
-  font-weight: 400;
-  margin: 15px 0;
-}
-
-details p:last-child {
-  margin-bottom: 0px;
-}
-
-summary {
-  display: flex;
-  align-items: center;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-summary:focus {
-  outline: none;
-}
-
-summary::-webkit-details-marker {
-  display: none
-}
-
-/*summary::before {
-    content: '+';
-    padding-right: 0.5em;
-}
-details[open]>summary::before {
-    content: '-';
-}*/
 </style>
