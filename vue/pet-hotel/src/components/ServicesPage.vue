@@ -2,29 +2,29 @@
   <div class="background"></div>
   <div class="modal">
     <div class="form">
-                             <form action="#" id="form" class="form__body d-flex flex-column">
-  <div class="form__item">
-                                    <input type="text" name="name" class="form__body_input _req" placeholder="Имя*">
-                                </div>
-                                
-                                <input type="text" name="name" class="form__body_input _req" placeholder="Фамилия">
-                                
+      <form action="#" id="form" class="form__body d-flex flex-column">
+        <div class="form__item">
+          <input type="text" name="name" class="form__body_input _req" placeholder="Имя*">
+        </div>
 
-                              
-                                <div class="form__item">
-                                  
-                                <input type="text" name="name" class="form__body_input _req" placeholder="Телефон*">
-                              </div>
-                                    <input type="text" name="email" class="form__body_input _req _email" placeholder="Email">
-                                 
-                                <button type="submit" class="form__btn subscribe btn">
-                                    Перезвоните мне
-                                </button>
-                             </form>
-                              </div>
+        <input type="text" name="name" class="form__body_input _req" placeholder="Фамилия">
+
+
+
+        <div class="form__item">
+
+          <input type="text" name="name" class="form__body_input _req" placeholder="Телефон*">
+        </div>
+        <input type="text" name="email" class="form__body_input _req _email" placeholder="Email">
+
+        <button type="submit" class="form__btn subscribe btn">
+          Перезвоните мне
+        </button>
+      </form>
+    </div>
   </div>
-                             
-                    
+
+
   <div class="container">
     <div class="card"><img src="@/assets/hotel1.jpg" alt="">
       <div class="info">
@@ -60,7 +60,7 @@
 <script>
 export default {
   name: 'ServicesPage',
-  
+
 }
 </script>
 
@@ -75,15 +75,15 @@ export default {
 }
 
 .modal {
-	width: 350px;
-	height: 256px;
-	padding: 20px 20px;
-	border-radius: 35px;
-	background: rgb(36 35 35);
+  width: 350px;
+  height: 256px;
+  padding: 20px 20px;
+  border-radius: 35px;
+  background: rgb(36 35 35);
 }
+
 .container {
   margin-top: 40px;
-  /*margin-left: 100px;*/
   display: grid;
   grid-template-columns: 1fr 1fr;
   position: relative;
@@ -121,5 +121,4 @@ button {
     grid-template-columns: auto;
   }
 }
-
 </style>
