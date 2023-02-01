@@ -5,42 +5,128 @@ body {
 	padding: 0;
 }
 
-.background{
-background: url('./img/header.jpg');
-width: 100%;
-    height: 500px;
+.background {
+	background: url('./img/header.jpg');
+	width: 100%;
+	height: 500px;
 }
 
 nav {
 	height: 100%;
-  }
-  
-  nav ul {
+}
+
+nav ul {
 	display: flex;
 	justify-content: space-around;
 	margin: 0;
 	padding: 0;
 	height: 100%;
-  }
-  
-  ul li {
+}
+
+ul li {
 	height: 100%;
 	display: flex;
-  }
-  
-  input{
+	margin-left: 42px;
+}
+
+input {
 	border-radius: 12px;
 	margin-top: 10px;
-  }
-  
-  a {
+}
+
+a {
 	margin: auto;
 	color: rgb(20, 19, 19);
 	font-family: Comic Sans MS, Comic Sans, cursive;
 	text-decoration: none;
-  }
-  
-  li {
+}
+
+li {
 	list-style-type: none;
-  
-  }
+}
+
+.meat {
+	background: url('./img/meat.png');
+	width: 40px;
+	height: 30px;
+}
+
+.fish {
+	background: url('./img/fish.png');
+	width: 33px;
+	height: 33px;
+}
+
+.chicken {
+	background: url('./img/chicken.png');
+	width: 30px;
+	height: 30px;
+}
+
+.salads {
+	background: url('./img/salads.png');
+	width: 40px;
+	height: 30px;
+}
+
+.bakery {
+	background: url('./img/bakery.png');
+	width: 30px;
+	height: 30px;
+}
+
+.dessert {
+	background: url('./img/dessert.png');
+	width: 31px;
+	height: 30px;
+}
+
+.navigation {
+	font-weight: bold;
+	margin-top: 27px;
+}
+
+h2 {
+	text-align: center;
+	font-family: cursive;
+}
+
+.filters {
+	display: flex;
+	justify-content: center;
+}
+
+button {
+	appearance: none;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+
+}button:hover {
+	background: rgba(6, 1, 99, 0.4);
+}
+
+.main{
+	margin-top: 40px;
+}
+
+span{
+	font-family: cursive;
+}
+
+.content{
+	float: left;
+}
+
+
+h3{
+	font-family: cursive;
+	margin-left: 331px;
+	font-size: 25px;
+}
+
+.info::before{
+	    height: 2px;
+    margin: 0px 10px;
+    transition: all 0.3s ease 0s;
+}
