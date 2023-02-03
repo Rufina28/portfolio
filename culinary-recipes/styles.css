@@ -114,8 +114,10 @@ span{
 	font-family: cursive;
 }
 
-.content{
+.content {
 	float: left;
+	width: 400px;
+	height: 400px;
 }
 
 
@@ -129,4 +131,12 @@ h3{
 	    height: 2px;
     margin: 0px 10px;
     transition: all 0.3s ease 0s;
+}
+
+video{
+	width: 400px;
+}
+
+.content2 {
+	float: left;
 }
