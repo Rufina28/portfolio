@@ -12,20 +12,26 @@
 <body>
     <div class="page">
         <div class="game">
-            <div id="mouse-on-skate">
+            <div id="mouse-on-skate" class="down">
                 <div id="mouse"></div>
                 <div id="skate"></div>
             </div>
             <div id="cheese"></div>
+            <div id="eagle-1"></div>
             <div id="cactus-up" class="cactus"></div>
             <div id="cactus" class="cactus"></div>
+
             <div class="points">
-                <div class="chees"></div> <span id="points">0</span>
+                <div class="chees"></div><span id="points">0</span>
+            </div>
+
+            <div class="life">
+                <div class="heart"></div><span id="life-points">2</span>
             </div>
         </div>
-        <div class="life"><span id="life">0</span></div>
         <div class="launch" id="start">Start</div>
         <div class="loss hidden">Game over</div>
+        <audio class="hidden" src="./media/SmashStereo-Ritual-360.mp4" controls preload="auto"></audio>
 </body>
 
 </html>
