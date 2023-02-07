@@ -3,21 +3,21 @@ let game = {
     ctx: null,
     board: null,
     with: 640,
-    height:360,
-    sprites:{
-    background: null,
-    cell: null,
-    body: null,
-},
-start() {
-    this.unit();
-    this.preload(() => {
+    height: 360,
+    sprites: {
+        background: null,
+        cell: null,
+        body: null,
+    },
+    start() {
+        this.unit();
+        this.preload(() => {
             this.run();
         });
     },
-unit() {
-    this.canvas = document.getElementById("mycanvas");
-    this.ctx = this.canvas.getContext("2d"); 
+    unit() {
+        this.canvas = document.getElementById("mycanvas");
+        this.ctx = this.canvas.getContext("2d");
     },
     preload(callback) {
         let loaded = 0;
@@ -25,16 +25,15 @@ unit() {
 
         let onAssetLoad = () => {
             ++loaded;
-
-if (loaded >= required) {
- callback();
-}
+            if (loaded >= required) {
+                callback();
+            }
         };
-        for (let key in  this.sprites) {
-        this.sprites[key] = new Image();
-        this.sprites[key].src = "img/"+ key +".png";
-        this.sprites[key].addEventListener("load", onAssetLoad); 
-        }  
+        for (let key in this.sprites) {
+            this.sprites[key] = new Image();
+            this.sprites[key].src = "img/" + key + ".png";
+            this.sprites[key].addEventListener("load", onAssetLoad);
+        }
     },
     run() {
         this.board.create();
