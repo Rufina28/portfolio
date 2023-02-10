@@ -1,3 +1,10 @@
+<<<<<<< Updated upstream
+=======
+const KEYS = {
+    LEFT: 37,
+    RIGHT: 39
+};
+>>>>>>> Stashed changes
 let game = {
     ctx: null,
     platform: null,
@@ -13,6 +20,20 @@ let game = {
     },
     init: function () {
         this.ctx = document.getElementById("mycanvas").getContext("2d");
+<<<<<<< Updated upstream
+=======
+        this.setEvents();
+    },
+    setEvents() {
+        window.addEventListener("keydown", e => {
+            if (e.keyCode === KEYS.LEFT || e.keyCode === KEYS.RIGHT) {
+                this.platform.start(e.keyCode);
+            }
+        });
+        window.addEventListener("keyup", e => {
+            this.platform.stop();
+        });
+>>>>>>> Stashed changes
     },
     preolad(callback) {
         let loaded = 0;
@@ -40,6 +61,12 @@ let game = {
             }
         }
     },
+<<<<<<< Updated upstream
+=======
+    update() {
+        this.platform.move();
+    },
+>>>>>>> Stashed changes
     run() {
         window.requestAnimationFrame(() => {
             this.render();
@@ -73,8 +100,31 @@ game.ball = {
 };
 
 game.platform = {
+<<<<<<< Updated upstream
     x: 280,
     y: 300
+=======
+    velosity: 6,
+    dx: 0,
+    x: 280,
+    y: 300,
+    start(direction) {
+        if (direction === KEYS.LEFT) {
+            this.dx = -this.velosity;
+        } else if (direction === KEYS.RIGHT) {
+            this.dx = this.velosity;
+        }
+    },
+    stop() {
+        this.dx = 0;
+    },
+    move() {
+        if (this.dx) {
+            this.x += this.dx;
+            game.ball.x += this.dx;
+        }
+    }
+>>>>>>> Stashed changes
 };
 window.addEventListener("load", () => {
     game.start();
