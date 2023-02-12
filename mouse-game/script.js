@@ -8,7 +8,14 @@ window.onload = () => {
     const points = document.getElementById('points')
     const lifePoints = document.getElementById('life-points')
 
+    const heart = document.querySelector('.heart')
+    const cheese1 = document.querySelector('#cheese-1')
+    const cheese2 = document.querySelector('#cheese-2')
+
+    const game = document.querySelector('.game')
+    const cactusUp = document.querySelector('#cactus-up')
     const cactusDown = document.querySelector('#cactus')
+    const eagle = document.querySelector('#eagle-1')
 
     console.log('mouse:', mouse)
 
@@ -16,14 +23,17 @@ window.onload = () => {
         console.log('Keyboard event:', e)
         console.log(mouse.classList.length) // .includes('jump')
 
-        if (e.code === 'KeyW') {
-            console.log('up')
-            mouseOnSkate.classList.add('up')
-            mouseOnSkate.classList.remove('down')
-        } else if (e.code === 'KeyS') {
-            console.log('down')
-            mouseOnSkate.classList.add('down')
-            mouseOnSkate.classList.remove('up')
+        if (!mouse.classList.contains('jump')) {
+            console.log('mouse on air can-t control skate')
+            if (e.code === 'KeyW') {
+                console.log('up')
+                mouseOnSkate.classList.add('up')
+                mouseOnSkate.classList.remove('down')
+            } else if (e.code === 'KeyS') {
+                console.log('down')
+                mouseOnSkate.classList.add('down')
+                mouseOnSkate.classList.remove('up')
+            }
         }
 
         if (e.code === 'Space' && !mouse.classList.length) {
@@ -32,8 +42,6 @@ window.onload = () => {
             setTimeout(() => {
                 mouse.classList.remove('jump')
             }, 1000)
-
-            points.innerText = parseInt(points.innerText) + 1
         }
 
     }, false)
@@ -43,16 +51,17 @@ window.onload = () => {
     function startGame() {
         start.classList.add('hidden')
 
-        //-- Move to const like cactusDown
-        document.querySelector('.game').classList.add('active')
-        document.querySelector('.heart').classList.add('active')
-        document.querySelector('#cheese').classList.add('active')
-        document.querySelector('#eagle-1').classList.add('active')
-        document.querySelector('#cactus-up').classList.add('active')
-        //--
+        game.classList.add('active')
+        heart.classList.add('active')
 
+        cheese1.classList.add('active')
+        cheese2.classList.add('active')
+
+        eagle.classList.add('active')
+
+        cactusUp.classList.add('active')
         cactusDown.classList.add('active')
-        document.querySelector('audio').play()
+        // document.querySelector('audio').play()
 
         gameStarted()
     }
@@ -62,34 +71,66 @@ window.onload = () => {
         // console.log('mouse:', mouse)
         // console.log('mouseOnSkate.classList.contains(up):', mouseOnSkate.classList.contains('up'))
         // console.log('cactusDown.offsetLeft:', cactusDown.offsetLeft)
+        if (mouse.classList.contains('jump')) {
+            console.log('mouse on air, don-t worry about cactuses')
 
-        if (mouseOnSkate.classList.contains('up')) {
+            if (cheese1.offsetLeft < 50 && cheese1.offsetLeft > 0 && !cheese1.classList.contains('hidden')) {
+
+                points.innerText = parseInt(points.innerText) + 1
+                cheese1.classList.add('hidden')
+
+                setTimeout(() => {
+                    cheese1.classList.remove('hidden')
+                }, 100)
+            }
+
+            if (cheese2.offsetLeft < 50 && cheese2.offsetLeft > 0 && !cheese2.classList.contains('hidden')) {
+
+                points.innerText = parseInt(points.innerText) + 1
+                cheese2.classList.add('hidden')
+
+                setTimeout(() => {
+                    cheese2.classList.remove('hidden')
+                }, 100)
+            }
+
+        } else if (mouseOnSkate.classList.contains('up')) {
             console.log('mouse on top line, don-t worry about bottom cactus')
-        } else {
-            if (mouse.classList.contains('jump')) {
-                console.log('mouse on air, don-t worry about bottom cactus')
-            } else {
-                if ((cactusDown.offsetLeft < 100 && cactusDown.offsetLeft > -80)
-                    && !mouse.classList.contains('pain')) {
-                    mouse.classList.add('pain')
-                    lifePoints.innerText = parseInt(lifePoints.innerText) - 1
 
-                    setTimeout(() => {
-                        mouse.classList.remove('pain')
-                    }, 1000)
-                }
+            if ((cactusUp.offsetLeft < 100 && cactusUp.offsetLeft > -80)
+                && !mouse.classList.contains('pain')) {
+                mouse.classList.add('pain')
+                lifePoints.innerText = parseInt(lifePoints.innerText) - 1
+
+                setTimeout(() => {
+                    mouse.classList.remove('pain')
+                }, 1000)
+            }
+        } else {
+            if ((cactusDown.offsetLeft < 100 && cactusDown.offsetLeft > -80)
+                && !mouse.classList.contains('pain')) {
+                mouse.classList.add('pain')
+                lifePoints.innerText = parseInt(lifePoints.innerText) - 1
+
+                setTimeout(() => {
+                    mouse.classList.remove('pain')
+                }, 1000)
             }
         }
 
         if (!parseInt(lifePoints.innerText)) {
             console.log('game over')
-            document.querySelector('.game').classList.remove('active')
+            game.classList.remove('active')
+            heart.classList.remove('active')
+            cheese1.classList.remove('active')
+            cheese2.classList.remove('active')
+            eagle.classList.remove('active')
+            cactusUp.classList.remove('active')
             cactusDown.classList.remove('active')
             // remove animation class 'active' for all other elements
         } else {
             requestAnimationFrame(gameStarted)
         }
-
     }
 
     // start.addEventListener('click', () => {

@@ -1,6 +1,16 @@
-@keyframes cheese {
+@keyframes cheese-1 {
 	0% {
 		left: 110%;
+	}
+
+	100% {
+		left: -20%;
+	}
+}
+
+@keyframes cheese-2 {
+	0% {
+		left: 170%;
 	}
 
 	100% {
@@ -162,7 +172,6 @@ body {
 	animation: run 8s;
 	animation-iteration-count: infinite;
 	animation-timing-function: linear;
-	/*animation: cheese 3s infinite linear;*/
 }
 
 #mouse-on-skate {
@@ -221,19 +230,31 @@ body {
 	animation-timing-function: linear;
 }
 
-#cheese {
+.cheese {
 	width: 140px;
 	height: 140px;
 	background-image: url('./img/cheese.png');
 	box-sizing: border-box;
 	background-size: contain;
 	position: absolute;
-	top: 300px;
+}
+
+#cheese-1 {
+	top: 250px;
 	left: 110%;
 }
 
-#cheese.active {
-	animation: cheese 3s infinite linear;
+#cheese-2 {
+	top: 150px;
+	left: 170%;
+}
+
+#cheese-1.active {
+	animation: cheese-1 3s infinite linear;
+}
+
+#cheese-2.active {
+	animation: cheese-2 4s infinite linear;
 }
 
 #eagle-1 {
