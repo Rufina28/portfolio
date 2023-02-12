@@ -1,10 +1,8 @@
-<<<<<<< Updated upstream
-=======
 const KEYS = {
     LEFT: 37,
     RIGHT: 39
 };
->>>>>>> Stashed changes
+
 let game = {
     ctx: null,
     platform: null,
@@ -20,12 +18,12 @@ let game = {
     },
     init: function () {
         this.ctx = document.getElementById("mycanvas").getContext("2d");
-<<<<<<< Updated upstream
-=======
+
         this.setEvents();
     },
     setEvents() {
         window.addEventListener("keydown", e => {
+            console.log('e.keyCode:', e.keyCode);
             if (e.keyCode === KEYS.LEFT || e.keyCode === KEYS.RIGHT) {
                 this.platform.start(e.keyCode);
             }
@@ -33,7 +31,7 @@ let game = {
         window.addEventListener("keyup", e => {
             this.platform.stop();
         });
->>>>>>> Stashed changes
+
     },
     preolad(callback) {
         let loaded = 0;
@@ -61,15 +59,14 @@ let game = {
             }
         }
     },
-<<<<<<< Updated upstream
-=======
     update() {
         this.platform.move();
     },
->>>>>>> Stashed changes
     run() {
         window.requestAnimationFrame(() => {
+            this.update();
             this.render();
+            this.run();
         });
     },
     render() {
@@ -86,6 +83,7 @@ let game = {
     start: function () {
         this.init();
         this.preolad(() => {
+            console.log('preload');
             this.create();
             this.run();
         });
@@ -100,15 +98,12 @@ game.ball = {
 };
 
 game.platform = {
-<<<<<<< Updated upstream
-    x: 280,
-    y: 300
-=======
     velosity: 6,
     dx: 0,
     x: 280,
     y: 300,
     start(direction) {
+        console.log('direction:', direction);
         if (direction === KEYS.LEFT) {
             this.dx = -this.velosity;
         } else if (direction === KEYS.RIGHT) {
@@ -120,11 +115,21 @@ game.platform = {
     },
     move() {
         if (this.dx) {
+            console.log('this.dx:', this.dx);
+            console.log('this.x:', this.x);
+
+            if (this.x < 0){
+                this.x = 0;
+                this.stop();
+            } else if (this.x > (640 - 256)) { // ширина платформы 256px
+                this.x = (640 - 256);
+                this.stop();
+            }
+
             this.x += this.dx;
             game.ball.x += this.dx;
         }
     }
->>>>>>> Stashed changes
 };
 window.addEventListener("load", () => {
     game.start();
