@@ -26,14 +26,20 @@ game.board = {
             y: offsetY + cellSize * row
         };
     },
+    createFood() {
+        let cell = this.cells[0];
+        cell.hasFood = true;
+    },
     getCell(row, col) {
-        console.log('board getCell')
         return this.cells.find(cell => cell.row === row && cell.col === col);
     },
     render() {
-        console.log('board render this.cells:', this.cells)
         this.cells.forEach(cell => {
             this.game.ctx.drawImage(this.game.sprites.cell, cell.x, cell.y);
+            
+            if (cell.hasFood) {
+                this.game.ctx.drawImage(this.game.sprites.food, cell.x, cell.y);    
+            }
         });
     }
 };
