@@ -87,6 +87,9 @@ fitHeight(data) {
     create() {
 this.board.create();
 this.snake.create();
+window.addEventListener("keydown", () => {
+    this.snake.start();
+});
     },
     render() {
         window.requestAnimationFrame(() => { 
