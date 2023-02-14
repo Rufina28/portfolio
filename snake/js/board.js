@@ -26,8 +26,12 @@ game.board = {
             y: offsetY + cellSize * row
         };
     },
+    getRandomAvailableCell() {
+        let index = this.game.random(0, this.cells.length - 1);
+        return this.cells[index];
+    },
     createFood() {
-        let cell = this.cells[0];
+        let cell = this.getRandomAvailableCell();
         cell.hasFood = true;
     },
     getCell(row, col) {
@@ -36,7 +40,7 @@ game.board = {
     render() {
         this.cells.forEach(cell => {
             this.game.ctx.drawImage(this.game.sprites.cell, cell.x, cell.y);
-            
+
             if (cell.hasFood) {
                 this.game.ctx.drawImage(this.game.sprites.food, cell.x, cell.y);    
             }

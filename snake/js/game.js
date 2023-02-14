@@ -20,6 +20,9 @@ const game = {
         body: null,
         food: null,
     },
+    random(min, max) {
+        return Math.floor(Math.random() * (max + 1 - min)) + min;
+    },
     start() {
         this.init();
         this.preload(() => {
@@ -44,7 +47,7 @@ const game = {
         if (data.realWidth/data.realHeight > data.maxWidth/data.maxHeight) {
             this,this.fitWidth(data);
         } else {
-            this.this.fitHeight(data);
+            this.fitHeight(data);
         }
     
 this.canvas.width = this.width;
