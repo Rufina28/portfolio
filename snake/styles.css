@@ -7,7 +7,11 @@ body {
 	overflow: hidden;
 }
 
-canvas{
+.fontPreload {
+	position: absolute;
+}
+
+canvas {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -15,5 +19,5 @@ canvas{
 	-o-transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
 	-moz-transform: translate(-50%, -50%);
-	-webkit-transform: translate(-50%, -50%) ;
+	-webkit-transform: translate(-50%, -50%);
 }

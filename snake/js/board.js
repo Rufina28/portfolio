@@ -40,7 +40,7 @@ game.board = {
         cell.type = type;
     },
     createFood() {
-       this.createCellObject("food");
+        this.createCellObject("food");
     },
     createBomb() {
         this.createCellObject("bomb");

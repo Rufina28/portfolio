@@ -83,7 +83,7 @@ game.snake = {
                 break;
         }
         if (!this.moving) {
-        this.game.onSnakeStart();
+            this.game.onSnakeStart();
         }
         this.moving = true;
     },
@@ -93,7 +93,7 @@ game.snake = {
         }
         let cell = this.getNextCell();
         if (!cell || this.hasCell(cell) || this.game.board.isBombCell(cell)) {
-this.game.stop();
+            this.game.stop();
         } else {
 
             this.cells.unshift(cell);
@@ -103,7 +103,7 @@ this.game.stop();
                 this.cells.pop();
             } else {
                 this.game.onSnakeEat();
-               
+
             }
         }
     },
