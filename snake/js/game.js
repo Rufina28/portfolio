@@ -17,8 +17,10 @@ const game = {
     sprites: {
         background: null,
         cell: null,
+        head: null,
         body: null,
         food: null,
+
     },
     random(min, max) {
         return Math.floor(Math.random() * (max + 1 - min)) + min;

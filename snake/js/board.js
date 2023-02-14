@@ -36,11 +36,11 @@ game.board = {
         if (cell) {
             cell.hasFood = false;
         }
-         cell = this.getRandomAvailableCell();
+        cell = this.getRandomAvailableCell();
         cell.hasFood = true;
     },
     isFoodCell(cell) {
-return cell.hasFood;
+        return cell.hasFood;
     },
     getCell(row, col) {
         return this.cells.find(cell => cell.row === row && cell.col === col);
