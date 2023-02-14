@@ -27,8 +27,9 @@ game.board = {
         };
     },
     getRandomAvailableCell() {
-        let index = this.game.random(0, this.cells.length - 1);
-        return this.cells[index];
+        let pool = this.cells.filter(cell => !this.game.snake.hasCell(cell));
+        let index = this.game.random(0, pool.length - 1);
+        return pool[index];
     },
     createFood() {
         let cell = this.getRandomAvailableCell();
@@ -42,7 +43,7 @@ game.board = {
             this.game.ctx.drawImage(this.game.sprites.cell, cell.x, cell.y);
 
             if (cell.hasFood) {
-                this.game.ctx.drawImage(this.game.sprites.food, cell.x, cell.y);    
+                this.game.ctx.drawImage(this.game.sprites.food, cell.x, cell.y);
             }
         });
     }

@@ -4,16 +4,16 @@ const game = {
     board: null,
     width: 0,
     height: 0,
-    dimensions:  {
+    dimensions: {
         max: {
-        width: 640,
-        height: 360
+            width: 640,
+            height: 360
+        },
+        min: {
+            width: 300,
+            height: 300
+        }
     },
-    min:  {
-        width: 300,
-        height: 300
-    }
-}, 
     sprites: {
         background: null,
         cell: null,
@@ -44,14 +44,14 @@ const game = {
             realHeight: window.innerHeight
         };
 
-        if (data.realWidth/data.realHeight > data.maxWidth/data.maxHeight) {
-            this,this.fitWidth(data);
+        if (data.realWidth / data.realHeight > data.maxWidth / data.maxHeight) {
+            this, this.fitWidth(data);
         } else {
             this.fitHeight(data);
         }
-    
-this.canvas.width = this.width;
-this.canvas.height = this.height;
+
+        this.canvas.width = this.width;
+        this.canvas.height = this.height;
     },
     fitWidth(data) {
         this.height = Math.round(this.width * data.realHeight / data.realWidth);
@@ -61,12 +61,12 @@ this.canvas.height = this.height;
         this.canvas.style.width = "100%";
 
     },
-fitHeight(data) {
-    this.width = Math.floor(data.realWidth * data.maxHeight / data.realHeight);
-    this.width = Math.min(this.width, data.maxWidth);
-    this.width = Math.max(this.width, data.minWidth);
-    this.height = Math.floor(this.width * data.realHeight / data.realWidth);
-    this.canvas.style.height = "100%";
+    fitHeight(data) {
+        this.width = Math.floor(data.realWidth * data.maxHeight / data.realHeight);
+        this.width = Math.min(this.width, data.maxWidth);
+        this.width = Math.max(this.width, data.minWidth);
+        this.height = Math.floor(this.width * data.realHeight / data.realWidth);
+        this.canvas.style.height = "100%";
     },
 
     preload(callback) {
@@ -89,31 +89,31 @@ fitHeight(data) {
         }
     },
     create() {
-this.board.create();
-this.snake.create();
-this.board.createFood();
-window.addEventListener("keydown", e => {
-    this.snake.start(e.keyCode);
-});
-    },
-    render() {
-        window.requestAnimationFrame(() => { 
-        this.ctx.clearRect(0,0, this.width, this.height);
-        this.ctx.drawImage(this.sprites.background, (this.width - this.sprites.background.width ) / 2, (this.height - this.sprites.background.height));
-        this.board.render();
-        this.snake.render();
+        this.board.create();
+        this.snake.create();
+        this.board.createFood();
+        window.addEventListener("keydown", e => {
+            this.snake.start(e.keyCode);
         });
     },
-    update () {
+    render() {
+        window.requestAnimationFrame(() => {
+            this.ctx.clearRect(0, 0, this.width, this.height);
+            this.ctx.drawImage(this.sprites.background, (this.width - this.sprites.background.width) / 2, (this.height - this.sprites.background.height));
+            this.board.render();
+            this.snake.render();
+        });
+    },
+    update() {
         this.snake.move();
         this.render();
     },
     run() {
-        
+
         this.create();
-setInterval(() => {
-    this.update();
-}, 150);
+        setInterval(() => {
+            this.update();
+        }, 150);
     }
 };
 

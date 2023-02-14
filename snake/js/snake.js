@@ -3,24 +3,24 @@ game.snake = {
     cells: [],
     moving: false,
     direction: false,
-     directions: {
+    directions: {
         up: {
             row: -1,
             col: 0,
         },
         down: {
-        row: 1,
-        col: 0,
+            row: 1,
+            col: 0,
+        },
+        left: {
+            row: 0,
+            col: -1,
+        },
+        right: {
+            row: 0,
+            col: 1,
+        }
     },
-    left: {
-        row: 0,
-        col: -1,
-    },
-    right: {
-        row: 0,
-        col: 1,
-    }
-},
     create() {
         let startCells = [{
             row: 7,
@@ -43,17 +43,17 @@ game.snake = {
     start(keyCode) {
         switch (keyCode) {
             case 38:
-            this.direction = this.directions.up;
-            break;
+                this.direction = this.directions.up;
+                break;
             case 37:
                 this.direction = this.directions.left;
                 break;
-                case 39:
-                    this.direction = this.directions.right;
-                    break;
-                    case 40: 
-                    this.direction = this.directions.down;
-                    break;
+            case 39:
+                this.direction = this.directions.right;
+                break;
+            case 40:
+                this.direction = this.directions.down;
+                break;
         }
 
         this.moving = true;
@@ -68,11 +68,14 @@ game.snake = {
             this.cells.pop();
         }
     },
+    hasCell(cell) {
+        return this.cells.find(part => part === cell);
+    },
     getNextCell() {
         let head = this.cells[0];
 
-let row = head.row + this.direction.row;
-let col = head.col + this.direction.col;
+        let row = head.row + this.direction.row;
+        let col = head.col + this.direction.col;
 
         return this.game.board.getCell(row, col);
     }
