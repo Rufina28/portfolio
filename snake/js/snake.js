@@ -65,8 +65,12 @@ game.snake = {
         let cell = this.getNextCell();
         if (cell) {
             this.cells.unshift(cell);
+            if (!this.game.board.isFoodCell(cell)) {
             this.cells.pop();
+            } else {
+                this.game.board.createFood();
         }
+    }
     },
     hasCell(cell) {
         return this.cells.find(part => part === cell);
