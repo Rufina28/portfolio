@@ -27,7 +27,7 @@ game.board = {
         };
     },
     getRandomAvailableCell() {
-        let pool = this.cells.filter(cell => !cell.hasFood && !cell.hasBomb && !this.game.snake.hasCell(cell));
+        let pool = this.cells.filter(cell => !cell.type && !this.game.snake.hasCell(cell));
         let index = this.game.random(0, pool.length - 1);
         return pool[index];
     },

@@ -90,9 +90,14 @@ game.snake = {
             return;
         }
         let cell = this.getNextCell();
-        if (cell) {
+        if (!cell || this.hasCell(cell) || this.game.board.isBombCell(cell)) {
+this.game.stop();
+        } else {
+
             this.cells.unshift(cell);
+
             if (!this.game.board.isFoodCell(cell)) {
+
                 this.cells.pop();
             } else {
                 this.game.board.createFood();
