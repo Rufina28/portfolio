@@ -82,7 +82,9 @@ game.snake = {
                 this.direction = this.directions.down;
                 break;
         }
-
+        if (!this.moving) {
+        this.game.onSnakeStart();
+        }
         this.moving = true;
     },
     move() {
@@ -100,7 +102,8 @@ this.game.stop();
 
                 this.cells.pop();
             } else {
-                this.game.board.createFood();
+                this.game.onSnakeEat();
+               
             }
         }
     },

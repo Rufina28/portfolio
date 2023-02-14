@@ -143,10 +143,19 @@ const game = {
         }, 3000);
     },
     stop() {
+        this.sounds.bomb.play();
         clearInterval(this.gameInterval);
         clearInterval(this.bombInterval);
         alert("Игра завершена");
         window.location.reload();
+    },
+    onSnakeStart() {
+        this.sounds.theme.lopp = true;
+        this.sounds.theme.play();
+    },
+    onSnakeEat() {
+        this.sounds.food.play();
+        this.board.createFood();
     }
 };
 
