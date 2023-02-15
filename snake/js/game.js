@@ -5,6 +5,8 @@ const game = {
     width: 0,
     height: 0,
     score: 0,
+    gameSpeed: 200,
+    bombTime: 3000,
     dimensions: {
         max: {
             width: 640,
@@ -42,11 +44,10 @@ const game = {
         this.ctx = this.canvas.getContext('2d');
         this.initDimensions();
         this. setTextFont();
-       
     },
     setTextFont() {
-        this.ctx.font = "20px Arial";
-        this.ctx.fillStyle = "#FFFFFF";
+        this.ctx.font = '20px Arial';
+        this.ctx.fillStyle = '#FFFFFF';
     },
     initDimensions() {
         let data = {
@@ -72,22 +73,21 @@ const game = {
         this.height = Math.min(this.height, data.maxHeight);
         this.height = Math.max(this.height, data.minHeight);
         this.width = Math.round(data.realWidth * this.height / data.realHeight);
-        this.canvas.style.width = "100%";
-
+        this.canvas.style.width = '100%';
     },
     fitHeight(data) {
         this.width = Math.floor(data.realWidth * data.maxHeight / data.realHeight);
         this.width = Math.min(this.width, data.maxWidth);
         this.width = Math.max(this.width, data.minWidth);
         this.height = Math.floor(this.width * data.realHeight / data.realWidth);
-        this.canvas.style.height = "100%";
+        this.canvas.style.height = '100%';
     },
 
     preload(callback) {
-        console.log('preload')
+        console.log('preload');
+
         let loaded = 0;
         let required = Object.keys(this.sprites).length + Object.keys(this.sounds).length
-
         let onAssetLoad = () => {
             ++loaded;
 
@@ -95,6 +95,7 @@ const game = {
                 callback();
             }
         };
+
         this.preloadSounds(onAssetLoad);
         this.preloadSprites(onAssetLoad);
     },
@@ -119,42 +120,77 @@ const game = {
         this.snake.create();
         this.board.createFood();
         this.board.createBomb();
-        window.addEventListener("keydown", e => {
+        window.addEventListener('keydown', e => {
+            // change to - e.code === 'KeyW'
+            console.log('e.code:', e.code);
             this.snake.start(e.keyCode);
         });
     },
     render() {
         window.requestAnimationFrame(() => {
             this.ctx.clearRect(0, 0, this.width, this.height);
-            this.ctx.drawImage(this.sprites.background, (this.width - this.sprites.background.width) / 2, (this.height - this.sprites.background.height));
+            this.ctx.drawImage(this.sprites.background, 
+                (this.width - this.sprites.background.width) / 2, 
+                (this.height - this.sprites.background.height) / 2);
             this.board.render();
             this.snake.render();
-            this.ctx.fillText("Score:" + this.score, 30, 30);
+            this.ctx.fillText('Score:' + this.score, 30, 30);
+
+            // if (this.score === 2) {
+            //     this.updateSpeed(this.gameSpeed -= 10, this.bombTime -= 100);
+            // } else if (this.score === 4)) {
+            //      this.updateSpeed(this.gameSpeed -= 10, this.bombTime -= 100);
+            // }
+
+            // console.log('this.gameSpeed:', this.gameSpeed);
+            // console.log('this.bombTime:', this.bombTime);
         });
     },
     update() {
         this.snake.move();
         this.render();
     },
-    run() {
+    updateSpeed(gameSpeed, bombTime) {
+        clearInterval(this.gameInterval);
+        clearInterval(this.bombInterval);
 
-        this.create();
+        this.gameSpeed  = gameSpeed;
+        this.bombTime = bombTime;
+
         this.gameInterval = setInterval(() => {
             this.update();
-        }, 150);
-
+        }, this.gameSpeed);
 
         this.bombInterval = setInterval(() => {
             if (this.snake.moving) {
                 this.board.createBomb();
             }
-        }, 3000);
+        }, this.bombTime);
+    },
+    run() {
+        this.create();
+
+        this.gameInterval = setInterval(() => {
+            this.update();
+        }, this.gameSpeed);
+
+        this.bombInterval = setInterval(() => {
+            if (this.snake.moving) {
+                this.board.createBomb();
+            }
+        }, this.bombTime);
     },
     stop() {
         this.sounds.bomb.play();
         clearInterval(this.gameInterval);
         clearInterval(this.bombInterval);
-        alert("Игра завершена");
+
+        // Нужно переделать
+        // html блок - | game over | - #gameOver
+        // #gameOver.classList.remove('hidden')
+        // вместо alert()
+        alert('Игра завершена');
+
         window.location.reload();
     },
     onSnakeStart() {
@@ -168,6 +204,6 @@ const game = {
     }
 };
 
-window.addEventListener("load", () => {
-game.start();
+window.addEventListener('load', () => {
+    game.start();
 });

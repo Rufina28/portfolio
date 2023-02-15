@@ -40,16 +40,16 @@ game.board = {
         cell.type = type;
     },
     createFood() {
-        this.createCellObject("food");
+        this.createCellObject('food');
     },
     createBomb() {
-        this.createCellObject("bomb");
+        this.createCellObject('bomb');
     },
     isFoodCell(cell) {
-        return cell.type === "food";
+        return cell.type === 'food';
     },
     isBombCell(cell) {
-        return cell.type === "bomb";
+        return cell.type === 'bomb';
     },
     getCell(row, col) {
         return this.cells.find(cell => cell.row === row && cell.col === col);

@@ -33,6 +33,7 @@ game.snake = {
             row: 8,
             col: 7
         }];
+
         this.direction = this.directions.up;
 
         for (let startCell of startCells) {
@@ -40,9 +41,9 @@ game.snake = {
         }
     },
     renderHead() {
-        let head = this.cells[0];
+        const head = this.cells[0];
 
-        let halfSize = this.game.sprites.head.width / 2;
+        const halfSize = this.game.sprites.head.width / 2;
 
         this.game.ctx.save();
 
@@ -55,8 +56,6 @@ game.snake = {
         this.game.ctx.drawImage(this.game.sprites.head, -halfSize, -halfSize);
 
         this.game.ctx.restore();
-
-
     },
     renderBody() {
         for (let i = 1; i < this.cells.length; i++) {
@@ -82,20 +81,23 @@ game.snake = {
                 this.direction = this.directions.down;
                 break;
         }
+
         if (!this.moving) {
             this.game.onSnakeStart();
         }
+
         this.moving = true;
     },
     move() {
         if (!this.moving) {
             return;
         }
+
         let cell = this.getNextCell();
+
         if (!cell || this.hasCell(cell) || this.game.board.isBombCell(cell)) {
             this.game.stop();
         } else {
-
             this.cells.unshift(cell);
 
             if (!this.game.board.isFoodCell(cell)) {
@@ -103,7 +105,6 @@ game.snake = {
                 this.cells.pop();
             } else {
                 this.game.onSnakeEat();
-
             }
         }
     },
@@ -111,10 +112,9 @@ game.snake = {
         return this.cells.find(part => part === cell);
     },
     getNextCell() {
-        let head = this.cells[0];
-
-        let row = head.row + this.direction.row;
-        let col = head.col + this.direction.col;
+        const head = this.cells[0];
+        const row = head.row + this.direction.row;
+        const col = head.col + this.direction.col;
 
         return this.game.board.getCell(row, col);
     }
