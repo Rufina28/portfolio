@@ -51,7 +51,6 @@ window.onload = function () {
             console.log('letterNumber:', letterNumber)
         }
     }, false)
-
 }
 
 const actions = {
@@ -125,25 +124,37 @@ const actions = {
                 }
                 if (!doneLetters.includes(key)) {
                     cells[i].classList.add('place')
+                    paintKeyboard(key, 'place')
+
                     // запомнить букву которую уже обработали
                     doneLetters.push(key)
-                } else {
-                    cells[i].classList.add('wrong')
                 }
             } else if (hasLetter) {
                 if (!doneLetters.includes(key)) {
                     cells[i].classList.add('letter')
                     // запомнить букву которую уже обработали
                     doneLetters.push(key)
-                } else {
-                    cells[i].classList.add('wrong')
+                    paintKeyboard(key, 'letter')
                 }
             } else {
                 cells[i].classList.add('wrong')
+                paintKeyboard(key, 'wrong')
             }
         }
 
         console.log('paintWord done')
-
     }
+}
+
+function paintKeyboard(key, state) {
+    console.log('paintKeyboard key:', key)
+    console.log(' * state:', state)
+
+    const keys = document.querySelectorAll('.cage')
+
+    keys.forEach((k) => {
+        if (key.toUpperCase() === k.innerText.toUpperCase()) {
+            k.classList.add(state)
+        }
+    })
 }

@@ -54,22 +54,6 @@ header {
 	border: 3px solid white;
 }
 
-.cell.letter {
-	color: black;
-	background: white;
-}
-
-.cell.place {
-	color: black;
-	background: yellow;
-}
-
-.cell.wrong {
-	color: white;
-	background: grey;
-	border: 3px solid lightgrey;
-}
-
 .alphabet {
 	box-sizing: border-box;
 	margin: auto;
@@ -129,6 +113,21 @@ header {
 	color: white;
 }
 
+.letter {
+	color: black;
+	background: white;
+}
+
+.place {
+	color: black;
+	background: yellow;
+}
+
+.wrong {
+	color: white;
+	background: grey;
+	border: 3px solid lightgrey;
+}
 
 .letters {
 	display: flex;
