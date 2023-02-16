@@ -9,6 +9,8 @@ let game = {
     ball: null,
     blocks: [],
     rows: 4,
+    width: 640,
+    height: 360,
     cols: 8,
     sprites: {
         background: null,
@@ -17,21 +19,18 @@ let game = {
         block: null
     },
     init: function () {
-        this.ctx = document.getElementById("mycanvas").getContext("2d");
-
+        this.ctx = document.getElementById('mycanvas').getContext('2d');
         this.setEvents();
     },
     setEvents() {
-        window.addEventListener("keydown", e => {
-            console.log('e.keyCode:', e.keyCode);
+        window.addEventListener('keydown', e => {
             if (e.keyCode === KEYS.LEFT || e.keyCode === KEYS.RIGHT) {
                 this.platform.start(e.keyCode);
             }
         });
-        window.addEventListener("keyup", e => {
+        window.addEventListener('keyup', e => {
             this.platform.stop();
         });
-
     },
     preolad(callback) {
         let loaded = 0;
@@ -46,7 +45,7 @@ let game = {
         for (let key in this.sprites) {
             this.sprites[key] = new Image();
             this.sprites[key].src = "img/" + key + ".png";
-            this.sprites[key].addEventListener("load", onImageLoand);
+            this.sprites[key].addEventListener('load', onImageLoand);
         }
     },
     create() {
@@ -70,6 +69,7 @@ let game = {
         });
     },
     render() {
+        this.ctx.clearRect(0, 0, this.width,this.height);
         this.ctx.drawImage(this.sprites.background, 0, 0);
         this.ctx.drawImage(this.sprites.ball, 0, 0, this.ball.width, this.ball.height, this.ball.x, this.ball.y, this.ball.width, this.ball.height);
         this.ctx.drawImage(this.sprites.platform, this.platform.x, this.platform.y);
@@ -83,7 +83,6 @@ let game = {
     start: function () {
         this.init();
         this.preolad(() => {
-            console.log('preload');
             this.create();
             this.run();
         });
@@ -115,22 +114,12 @@ game.platform = {
     },
     move() {
         if (this.dx) {
-            console.log('this.dx:', this.dx);
-            console.log('this.x:', this.x);
-
-            if (this.x < 0){
-                this.x = 0;
-                this.stop();
-            } else if (this.x > (640 - 256)) { // ширина платформы 256px
-                this.x = (640 - 256);
-                this.stop();
-            }
-
             this.x += this.dx;
             game.ball.x += this.dx;
         }
     }
 };
-window.addEventListener("load", () => {
+
+window.addEventListener('load', () => {
     game.start();
 });
