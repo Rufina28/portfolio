@@ -56,7 +56,7 @@ let game = {
             for (let col = 0; col < this.cols; col++) {
                 this.blocks.push({
                     width: 60,
-                    height:20,
+                    height: 20,
                     x: 64 * col + 65,
                     y: 24 * row + 35
                 });
@@ -66,11 +66,20 @@ let game = {
     update() {
         this.platform.move();
         this.ball.move();
+        this.collideBlocks();
+        this.collidePlatform();
+    },
 
+    collideBlocks() {
         for (let block of this.blocks) {
-          if  (this.ball.collide(block)) {
-            this.ball.bumbBlock(block);
-          }
+            if (this.ball.collide(block)) {
+                this.ball.bumpBlock(block);
+            }
+        }
+    },
+    collidePlatform() {
+        if (this.ball.collide(this.platform)) {
+            this.ball.bumpPlatform(this.platform);
         }
     },
     run() {
@@ -100,7 +109,7 @@ let game = {
         });
     },
     random(min, max) {
-return Math.floor(Math.random() *(max - min + 1) + min);
+        return Math.floor(Math.random() * (max - min + 1) + min);
     }
 };
 
@@ -119,7 +128,7 @@ game.ball = {
     move() {
         if (this.dy) {
             this.y += this.dy;
-        } 
+        }
         if (this.dx) {
             this.x += this.dx;
         }
@@ -127,16 +136,22 @@ game.ball = {
     collide(element) {
         let x = this.x + this.dx;
         let y = this.y + this.dy;
-       if (this.x + this.width > element.x &&
-        this.x < element.x + element.width &&
-        this.y + this.height > element.y &&
-        this.y < element.y + element.height) {
+
+        if (x + this.width > element.x &&
+            x < element.x + element.width &&
+            y + this.height > element.y &&
+            y < element.y + element.height) {
             return true;
         }
         return false;
     },
-    bumbBlock(block) {
-     this.dy *= -1;
+    bumpBlock(block) {
+        this.dy *= -1;
+    },
+    bumpPlatform(platform) {
+        this.dy *= -1;
+        let touchX = this.x + this.width / 2;
+        this.dx = this.velosity * platform.getTouchOffset(touchX);
     }
 };
 
@@ -145,6 +160,8 @@ game.platform = {
     dx: 0,
     x: 280,
     y: 300,
+    width: 100,
+    height: 14,
     ball: game.ball,
     fire() {
         if (this.ball) {
@@ -169,6 +186,12 @@ game.platform = {
                 this.ball.x += this.dx;
             }
         }
+    },
+    getTouchOffset(x) {
+        let diff = (this.x + this.width) - x;
+        let offset = this.width - diff;
+        let result = 2 * offset / this.width;
+        return result - 1;
     }
 };
 
