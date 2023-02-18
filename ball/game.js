@@ -25,6 +25,7 @@ let game = {
     },
     setEvents() {
         window.addEventListener('keydown', e => {
+            // change to e.code === 'KeyW'
             if (e.keyCode === KEYS.SPACE) {
                 this.platform.fire();
             } else if (e.keyCode === KEYS.LEFT || e.keyCode === KEYS.RIGHT) {
@@ -34,11 +35,31 @@ let game = {
         window.addEventListener('keyup', e => {
             this.platform.stop();
         });
+        window.addEventListener('click', e => {
+            console.log('e.target:', e.target);
+            console.log('e.target.id:', e.target.id);
+            if (e.target.id === 'mycanvas' && this.platform.ball) {
+                console.log('start game');
+                this.platform.fire();
+            }
+
+            if (e.target.id === 'left') {
+                this.platform.start(37);
+                setTimeout(() => {
+                    this.platform.stop();
+                }, 100);
+            } else if (e.target.id === 'right') {
+                this.platform.start(39);
+                setTimeout(() => {
+                    this.platform.stop();
+                }, 100);
+            }
+        });
     },
     preolad(callback) {
         let loaded = 0;
         let required = Object.keys(this.sprites).length;
-        let onImageLoand = () => {
+        let onImageLoad = () => {
             ++loaded;
             if (loaded >= required) {
                 callback();
@@ -48,7 +69,7 @@ let game = {
         for (let key in this.sprites) {
             this.sprites[key] = new Image();
             this.sprites[key].src = "img/" + key + ".png";
-            this.sprites[key].addEventListener('load', onImageLoand);
+            this.sprites[key].addEventListener('load', onImageLoad);
         }
     },
     create() {
@@ -59,7 +80,7 @@ let game = {
                     width: 60,
                     height: 20,
                     x: 64 * col + 65,
-                    y: 24 * row + 35
+                    y: 24 * row + 35,
                 });
             }
         }
@@ -77,7 +98,6 @@ let game = {
         for (let block of this.blocks) {
             if (block.active && this.ball.collide(block)) {
                 this.ball.bumpBlock(block);
-
             }
         }
     },
@@ -101,10 +121,24 @@ let game = {
         this.renderBlocks();
     },
     renderBlocks() {
+        let activeBlocksAmount = 0;
+
+        this.blocks.forEach((block) => {
+            if (block.active) {
+                activeBlocksAmount += 1;
+                // activeBlocksAmount++;
+            }
+        });
+
         for (let block of this.blocks) {
             if (block.active) {
                 this.ctx.drawImage(this.sprites.block, block.x, block.y);
             }
+        }
+
+        if (!activeBlocksAmount) {
+            // this you can stop the game
+            console.log('No blocks:', this.blocks);
         }
     },
     start: function () {
@@ -175,7 +209,9 @@ game.ball = {
             this.y = 0;
             this.dy = this.velosity;
         } else if (ballBottom > worldBottom) {
-
+            // this you can stop the game
+            console.log('Lost ball');
+            // game stop
         }
     },
     bumpBlock(block) {
@@ -184,8 +220,9 @@ game.ball = {
     },
     bumpPlatform(platform) {
         if (platform.dx) {
-        this.x += platform.dx;
+            this.x += platform.dx;
         }
+
         if (this.dy > 0) {
             this.dy = -this.velosity;
             let touchX = this.x + this.width / 2;
@@ -209,6 +246,7 @@ game.platform = {
         }
     },
     start(direction) {
+        console.log('direction:', direction);
         if (direction === KEYS.LEFT) {
             this.dx = -this.velosity;
         } else if (direction === KEYS.RIGHT) {
@@ -234,11 +272,11 @@ game.platform = {
     },
     collideWorldBounds() {
         let x = this.x + this.dx;
-       
         let platformLeft = x;
         let platformRight = platformLeft + this.width;
         let worldLeft = 0;
         let worldRight = game.width;
+
         if (platformLeft < worldLeft || platformRight > worldRight) {
             this.dx = 0;
         }
@@ -246,5 +284,7 @@ game.platform = {
 };
 
 window.addEventListener('load', () => {
+    console.log('window.innerHeight', window.innerHeight);
+    document.getElementById('debug').innerText = window.innerHeight;
     game.start();
 });
