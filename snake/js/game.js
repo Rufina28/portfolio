@@ -46,7 +46,7 @@ const game = {
         this. setTextFont();
     },
     setTextFont() {
-        this.ctx.font = '20px Arial';
+        this.ctx.font = '18px Arial';
         this.ctx.fillStyle = '#FFFFFF';
     },
     initDimensions() {
