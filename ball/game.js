@@ -5,6 +5,7 @@ const KEYS = {
 };
 
 let game = {
+    running: true,
     ctx: null,
     platform: null,
     ball: null,
@@ -107,11 +108,13 @@ let game = {
         }
     },
     run() {
+        if (this.running) {
         window.requestAnimationFrame(() => {
             this.update();
             this.render();
             this.run();
         });
+    }
     },
     render() {
         this.ctx.clearRect(0, 0, this.width, this.height);
@@ -212,6 +215,7 @@ game.ball = {
             // this you can stop the game
             console.log('Lost ball');
             // game stop
+            game.running = false;
         }
     },
     bumpBlock(block) {
