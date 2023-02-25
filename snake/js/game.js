@@ -10,11 +10,11 @@ const game = {
     dimensions: {
         max: {
             width: 640,
-            height: 360
+            height: 360,
         },
         min: {
             width: 300,
-            height: 300
+            height: 300,
         }
     },
     sprites: {
@@ -56,7 +56,7 @@ const game = {
             minWidth: this.dimensions.min.width,
             minHeight: this.dimensions.min.height,
             realWidth: window.innerWidth,
-            realHeight: window.innerHeight
+            realHeight: window.innerHeight,
         };
 
         if (data.realWidth / data.realHeight > data.maxWidth / data.maxHeight) {
@@ -69,23 +69,26 @@ const game = {
         this.canvas.height = this.height;
     },
     fitWidth(data) {
-        this.height = Math.round(this.width * data.realHeight / data.realWidth);
+        // this.height = Math.round(this.width * data.realHeight / data.realWidth);
+        this.height = Math.round(data.maxWidth * data.realHeight / data.realWidth);
         this.height = Math.min(this.height, data.maxHeight);
         this.height = Math.max(this.height, data.minHeight);
+
         this.width = Math.round(data.realWidth * this.height / data.realHeight);
+
         this.canvas.style.width = '100%';
     },
     fitHeight(data) {
         this.width = Math.floor(data.realWidth * data.maxHeight / data.realHeight);
         this.width = Math.min(this.width, data.maxWidth);
         this.width = Math.max(this.width, data.minWidth);
+
         this.height = Math.floor(this.width * data.realHeight / data.realWidth);
+
         this.canvas.style.height = '100%';
     },
 
     preload(callback) {
-        console.log('preload');
-
         let loaded = 0;
         let required = Object.keys(this.sprites).length + Object.keys(this.sounds).length
         let onAssetLoad = () => {
@@ -184,11 +187,7 @@ const game = {
         clearInterval(this.gameInterval);
         clearInterval(this.bombInterval);
 
-        // Нужно переделать
-        // html блок - | game over | - #gameOver
-       //gameOver.classList.remove('hidden')
-        // вместо alert()
-        //alert('Игра завершена');
+        document.getElementById('game-over').classList.remove('hidden');
     },
     onSnakeStart() {
         this.sounds.theme.lopp = true;
