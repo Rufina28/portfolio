@@ -7,6 +7,21 @@ body {
 	overflow: hidden;
 }
 
+.loss {
+	color: #ff0089;
+	position: absolute;
+	font-size: 145px;
+    cursor: pointer;
+	top: 40%;
+    left: 22%;
+	z-index: 1;
+
+}
+
+.hidden {
+	display: none;
+}
+
 .fontPreload {
 	position: absolute;
 }

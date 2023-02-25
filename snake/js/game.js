@@ -110,7 +110,6 @@ const game = {
     preloadSounds(onAssetLoad) {
         for (let key in this.sounds) {
             this.sounds[key] = new Audio();
-            // this.sprites[key].src = "img/" + key + ".png";
             this.sounds[key].src = `./sounds/${key}.mp3`;
             this.sounds[key].addEventListener('canplaythrough', onAssetLoad, {once:true});
         }
@@ -187,11 +186,9 @@ const game = {
 
         // Нужно переделать
         // html блок - | game over | - #gameOver
-        // #gameOver.classList.remove('hidden')
+       //gameOver.classList.remove('hidden')
         // вместо alert()
-        alert('Игра завершена');
-
-        window.location.reload();
+        //alert('Игра завершена');
     },
     onSnakeStart() {
         this.sounds.theme.lopp = true;

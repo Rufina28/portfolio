@@ -25,9 +25,9 @@ let game = {
         this.setEvents();
     },
     setEvents() {
-        window.addEventListener('KeyW', e => {
+        window.addEventListener('keydown', e => {
             // change to e.code === 'KeyW'
-            if (e.KeyW === KEYS.SPACE) {
+            if (e.code === KEYS.SPACE) {
                 this.platform.fire();
             } else if (e.KeyW === KEYS.LEFT || e.KeyW === KEYS.RIGHT) {
                 this.platform.start(e.KeyW);
@@ -217,7 +217,7 @@ game.ball = {
             // game stop
             game.running = false;
            // gameOver.classList.remove('hidden')
-        }
+        } 
     },
     bumpBlock(block) {
         this.dy *= -1;
