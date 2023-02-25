@@ -42,7 +42,6 @@ game.snake = {
     },
     renderHead() {
         const head = this.cells[0];
-
         const halfSize = this.game.sprites.head.width / 2;
 
         this.game.ctx.save();

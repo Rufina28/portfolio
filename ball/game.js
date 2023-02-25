@@ -1,7 +1,7 @@
 const KEYS = {
-    LEFT: 37,
-    RIGHT: 39,
-    SPACE: 32
+    LEFT: 'ArrowLeft',
+    RIGHT: 'ArrowRight',
+    SPACE: 'Space',
 };
 
 let game = {
@@ -18,7 +18,7 @@ let game = {
         background: null,
         ball: null,
         platform: null,
-        block: null
+        block: null,
     },
     init: function () {
         this.ctx = document.getElementById('mycanvas').getContext('2d');
@@ -26,31 +26,28 @@ let game = {
     },
     setEvents() {
         window.addEventListener('keydown', e => {
-            // change to e.code === 'KeyW'
             if (e.code === KEYS.SPACE) {
                 this.platform.fire();
-            } else if (e.KeyW === KEYS.LEFT || e.KeyW === KEYS.RIGHT) {
-                this.platform.start(e.KeyW);
+            } else if (e.code === KEYS.LEFT || e.code === KEYS.RIGHT) {
+                this.platform.start(e.code);
             }
         });
         window.addEventListener('keyup', e => {
             this.platform.stop();
         });
         window.addEventListener('click', e => {
-            console.log('e.target:', e.target);
-            console.log('e.target.id:', e.target.id);
             if (e.target.id === 'mycanvas' && this.platform.ball) {
                 console.log('start game');
                 this.platform.fire();
             }
 
             if (e.target.id === 'left') {
-                this.platform.start(37);
+                this.platform.start('ArrowLeft');
                 setTimeout(() => {
                     this.platform.stop();
                 }, 100);
             } else if (e.target.id === 'right') {
-                this.platform.start(39);
+                this.platform.start('ArrowRight');
                 setTimeout(() => {
                     this.platform.stop();
                 }, 100);
@@ -216,7 +213,8 @@ game.ball = {
             console.log('Lost ball');
             // game stop
             game.running = false;
-           // gameOver.classList.remove('hidden')
+            const gameOver = document.getElementById('game-over');
+            gameOver.classList.remove('hidden');
         } 
     },
     bumpBlock(block) {
@@ -251,7 +249,6 @@ game.platform = {
         }
     },
     start(direction) {
-        console.log('direction:', direction);
         if (direction === KEYS.LEFT) {
             this.dx = -this.velosity;
         } else if (direction === KEYS.RIGHT) {
@@ -290,6 +287,6 @@ game.platform = {
 
 window.addEventListener('load', () => {
     console.log('window.innerHeight', window.innerHeight);
-    document.getElementById('debug').innerText = window.innerHeight;
+    // document.getElementById('debug').innerText = window.innerHeight;
     game.start();
 });

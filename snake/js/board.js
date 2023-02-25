@@ -3,11 +3,9 @@ game.board = {
     size: 15,
     cells: [],
     create() {
-        console.log('board create')
         this.createCells();
     },
     createCells() {
-        console.log('board createCells')
         for (let row = 0; row < this.size; row++) {
             for (let col = 0; col < this.size; col++) {
                 this.cells.push(this.createCell(row, col));
@@ -15,7 +13,6 @@ game.board = {
         }
     },
     createCell(row, col) {
-        console.log('board createCell')
         let cellSize = this.game.sprites.cell.width + 1;
         let offsetX = (this.game.width - cellSize * this.size) / 2;
         let offsetY = (this.game.height - cellSize * this.size) / 2;
