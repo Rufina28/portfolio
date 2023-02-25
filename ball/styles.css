@@ -60,11 +60,16 @@ canvas {
 }
 
 .loss {
-	/* border-radius: 35px; */
+	width: 972px;
+	height: 200px;
+	text-align: center;
+	border: 3px solid rgb(43, 42, 42);
+	border-radius: 35px; 
+	background: rgb(0 0 0);
 	color: #ff00e8;
 	font-size: 145px;
 	cursor: pointer;
-	z-index: 11;
+	z-index: 101;
 	margin: auto;
 }
 
