@@ -26,7 +26,7 @@ body {
 	background: rgb(0 0 0);
 	font-size: 145px;
 	cursor: pointer;
-	z-index: 11;
+	z-index: 1;
 	margin: auto;
 }
 

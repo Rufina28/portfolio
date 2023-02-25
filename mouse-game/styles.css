@@ -304,7 +304,7 @@ body {
 	padding: 10px;
 	border-radius: 35px;
 	color: yellow;
-	background: rgb(36 35 35);
+	background: rgb(7, 7, 7);
 	position: absolute;
 	top: 45%;
 	left: 42%;
@@ -314,18 +314,18 @@ body {
 }
 
 .loss {
-	/*width: 560px;
-	height: 200px;
+	width: 631px;
+	height: 353px;
 	text-align: center;
-	border: 3px solid rgb(43, 42, 42);*/
+	border: 3px solid rgb(43, 42, 42);
 	border-radius: 35px;
 	color: yellow;
-	background: rgb(36 35 35);
+	background: rgb(6, 6, 6);
 	position: absolute;
 	font-size: 145px;
     cursor: pointer;
-		top: 40%;
-    left: 22%;
+		top: 30%;
+    left: 33%;
 
 }
 
