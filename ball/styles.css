@@ -50,6 +50,21 @@ canvas {
 	font-size: 30px;
 }
 
+.loss {
+	border-radius: 35px;
+	color: #ff00e8;
+	position: absolute;
+	font-size: 145px;
+    cursor: pointer;
+		top: 40%;
+    left: 22%;
+	z-index: 11;
+}
+
+.hidden {
+	display: none;
+}
+
 @media screen and (max-height: 400px) {
 	canvas {
 		top: 0;
@@ -58,7 +73,6 @@ canvas {
 }
 
 @media screen and (max-height: 380px) {
-	canvas {
+	/*canvas {
 		/* transform: scale(.6); */
 	}
-}

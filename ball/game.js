@@ -25,12 +25,12 @@ let game = {
         this.setEvents();
     },
     setEvents() {
-        window.addEventListener('keydown', e => {
+        window.addEventListener('KeyW', e => {
             // change to e.code === 'KeyW'
-            if (e.keyCode === KEYS.SPACE) {
+            if (e.KeyW === KEYS.SPACE) {
                 this.platform.fire();
-            } else if (e.keyCode === KEYS.LEFT || e.keyCode === KEYS.RIGHT) {
-                this.platform.start(e.keyCode);
+            } else if (e.KeyW === KEYS.LEFT || e.KeyW === KEYS.RIGHT) {
+                this.platform.start(e.KeyW);
             }
         });
         window.addEventListener('keyup', e => {
@@ -216,6 +216,7 @@ game.ball = {
             console.log('Lost ball');
             // game stop
             game.running = false;
+           // gameOver.classList.remove('hidden')
         }
     },
     bumpBlock(block) {
