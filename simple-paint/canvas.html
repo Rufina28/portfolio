@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Canvas</title>
+	<style>
+		body {
+			background: #345d2e;
+			display: flex;
+            justify-content: center;
+		}
+
+		.pupiter {
+			position: relative;
+			width: 900px;
+			height: 680px;
+			overflow: hidden;
+			top: 100px;
+		}
+
+		img {
+			width: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		#canvas {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			/* border: 1px solid #000; */
+		}
+	</style>
+</head>
+
+<body>
+	<div class="pupiter">
+		<img src="./red-panda.jpg">
+		<canvas id="canvas"></canvas>
+	</div>
+</body>
+
+<script>
+	const canvas = document.getElementById('canvas')
+	const context = canvas.getContext("2d")
+	let paint = false
+	width = 10
+	height = 10
+
+	function init() {
+		canvas.width = 900;
+		canvas.height = 680;
+
+		context.fillStyle = 'rgb(255, 255, 255)'
+		context.fillRect(0, 0, canvas.width, canvas.height)
+	}
+
+	function setEvents() {
+
+		canvas.addEventListener('mousedown', (e) => {
+			const mouseX = e.offsetX
+			const mouseY = e.offsetY
+
+			paint = true
+
+			console.log(`x: ${mouseX}, y: ${mouseY}`);
+			// addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop)
+			// redraw()
+		}, false)
+
+		canvas.addEventListener('mousemove', (e) => {
+			if (paint) {
+				const mouseX = e.offsetX
+				const mouseY = e.offsetY
+
+				console.log(`x: ${mouseX}, y: ${mouseY}`);
+
+				// context.fillStyle = 'rgba(0, 0, 0, 0)'
+				// context.fillRect(mouseX, mouseY, width, height)
+
+				context.clearRect(mouseX, mouseY, width, height);
+				
+
+
+				// addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop)
+				// redraw()
+			}
+		}, false)
+
+		canvas.addEventListener('mouseup', (e) => {
+			paint = false
+			console.log(`paint: ${paint}`);
+		}, false)
+
+	}
+
+	init()
+	setEvents()
+</script>
+
+</html>
