@@ -56,6 +56,7 @@
 
 		context.fillStyle = 'rgb(255, 255, 255)'
 		context.fillRect(0, 0, canvas.width, canvas.height)
+		
 	}
 
 	function setEvents() {
@@ -64,11 +65,16 @@
 			const mouseX = e.offsetX
 			const mouseY = e.offsetY
 
-			paint = true
+			paint = true;
 
 			console.log(`x: ${mouseX}, y: ${mouseY}`);
 			// addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop)
 			// redraw()
+		}, false)
+
+		canvas.addEventListener('mouseup', (e) => {
+			paint = false
+			console.log(`paint: ${paint}`);
 		}, false)
 
 		canvas.addEventListener('mousemove', (e) => {
@@ -82,17 +88,14 @@
 				// context.fillRect(mouseX, mouseY, width, height)
 
 				context.clearRect(mouseX, mouseY, width, height);
-				
-
-
+				context.strokeStyle = "#df4b26";
+				context.lineCap = 'round';
+				context.lineWidth = 10;
+  
+			
 				// addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop)
 				// redraw()
 			}
-		}, false)
-
-		canvas.addEventListener('mouseup', (e) => {
-			paint = false
-			console.log(`paint: ${paint}`);
 		}, false)
 
 	}
