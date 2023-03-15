@@ -33,7 +33,7 @@ class Projectile {
         c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
         c.fillStyle = this.color
         c.fill()
-}
+    }
 }
 
 const x = canvas.width / 2
@@ -43,6 +43,7 @@ const player = new Player(x, y, 30, 'blue')
 player.draw()
 
 console.log(player)
+
 addEventListener('click', (event) => {
     const projectile = new Projectile(
         event.clientX, 
@@ -52,5 +53,4 @@ addEventListener('click', (event) => {
         null
     )
     projectile.draw()
-
 })
