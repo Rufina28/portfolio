@@ -64,6 +64,9 @@ function setEvents() {
 		} else if (e.target.id === 'medium') {
 			brush.width = 30
 			brush.height = 30
+		} else if (e.target.id === 'big') {
+			brush.width = 50
+			brush.height = 50
 		}
 	}, false)
 

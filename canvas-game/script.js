@@ -1,4 +1,4 @@
-const canvas = document. querySelector('canvas')
+const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
 
 canvas.width = innerWidth
@@ -26,7 +26,7 @@ class Projectile {
         this.y = y
         this.radius = radius
         this.color = color
-        this.velocity = velocity  
+        this.velocity = velocity
     }
     draw() {
         c.beginPath()
@@ -47,7 +47,7 @@ class Enemy {
         this.y = y
         this.radius = radius
         this.color = color
-        this.velocity = velocity  
+        this.velocity = velocity
     }
     draw() {
         c.beginPath()
@@ -71,17 +71,18 @@ const projectiles = []
 const enemies = []
 
 function spawnEnemies() {
-setInterval(() => {
-    const x = 100
-    const y = 100
-    const radius = 30
-    const color = 'green'
-    const velocity = {
-        x: 1,
-        y: 1
-    }
+    setInterval(() => {
+        console.log(' * spawnEnemies')
+        const x = 100
+        const y = 100
+        const radius = 30
+        const color = 'green'
+        const velocity = {
+            x: 1,
+            y: 1
+        }
 
-enemies.push(new Enemy(x, y, radius, color, velocity))
+        enemies.push(new Enemy(x, y, radius, color, velocity))
     }, 1000)
 }
 
@@ -90,7 +91,7 @@ function animate() {
     c.clearRect(0, 0, canvas.width, canvas.height)
     player.draw()
     projectiles.forEach((projectile) => {
-projectile.update()
+        projectile.update()
     })
 
     enemies.forEach(enemy => {
@@ -99,17 +100,19 @@ projectile.update()
 }
 
 addEventListener('click', (event) => {
-  const angle = Math.atan2(
-    event.clientY - canvas.height / 2,
-    event.clientX - canvas.width / 2
-  )
-const velocity = {
-    x: Math.cos(angle),
-    y: Math.sin(angle)
-}
-  projectiles.push(
-    new Projectile( canvas.width / 2, canvas.height / 2,
-     5, 'red', velocity)
-  )
-    })
+    const angle = Math.atan2(
+        event.clientY - canvas.height / 2,
+        event.clientX - canvas.width / 2
+    )
+    const velocity = {
+        x: Math.cos(angle),
+        y: Math.sin(angle)
+    }
+    projectiles.push(
+        new Projectile(canvas.width / 2, canvas.height / 2,
+            5, 'red', velocity)
+    )
+})
+
+spawnEnemies()
 animate()
