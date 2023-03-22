@@ -2,19 +2,28 @@ console.log('Wordy')
 
 // camelCase - frontend
 // tooltip_place - backend
-let tooltipNoPlace = `
+const tooltipNoPlace = `
 <div class="tooltip">Не угадали положение буквы<br> &#128520;</div>`
 
-let tooltipPlace = `
+const tooltipPlace = `
 <div class="tooltip">Вы угадали положение буквы<br>&#128526;</div>`
+const tooltipWrong = ``
 
-let word = 'налог'.toUpperCase()
+const dictionary = [
+    'налог', 'ягуар', 'ангар', 'гараж', 'алмаз',
+    'пакет', 'учёба', 'хомяк', 'щенок', 'висок',
+]
+
+const randex = Math.floor(Math.random() * dictionary.length - 1) // 0 - max
+
+let word = dictionary[randex].toUpperCase()
 
 let wordNumber = 1
 let letterNumber = 0
 let win = false
 
 window.onload = function () {
+    const page = document.querySelector('.page')
     const desk = document.getElementById('desk')
     const keyboard = document.getElementById('keyboard')
 
@@ -50,6 +59,35 @@ window.onload = function () {
             }
             console.log('letterNumber:', letterNumber)
         }
+    }, false)
+
+    page.addEventListener('click', (e) => {
+        // clean tooltip
+        const tooltip = document.querySelector('.tooltip')
+        tooltip && tooltip.remove()
+    }, false)
+
+    desk.addEventListener('click', (e) => {
+        const cell = e.target
+        console.log('cell:', cell)
+
+        setTimeout(() => {
+            if (cell.innerText) {
+                console.log('show tooltip:', cell)
+                if (cell.classList.contains('letter')) {
+                    console.log('tooltipNoPlace')
+                    cell.innerHTML += tooltipNoPlace
+                    // tooltipNoPlace
+                } else if (cell.classList.contains('place')) {
+                    console.log('tooltipPlace')
+                    cell.innerHTML += tooltipPlace
+                    // tooltipPlace
+                } else if (cell.classList.contains('wrong')) {
+                    console.log('tooltipWrong')
+                    // tooltipWrong
+                }
+            }
+        }, 80)
     }, false)
 }
 
