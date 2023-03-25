@@ -16,7 +16,7 @@ window.onload = () => {
     const points = document.getElementById('points')
     const lifePoints = document.getElementById('life-points')
 
-    const cheese1 = document.querySelector('#cheese-1')
+    const patch = document.querySelector('#patch')
     const cheese2 = document.querySelector('#cheese-2')
 
     const cactusUp = document.querySelector('#cactus-up')
@@ -83,7 +83,7 @@ window.onload = () => {
         game.classList.add('active')
         heart.classList.add('active')
 
-        cheese1.classList.add('active')
+        patch.classList.add('active')
         cheese2.classList.add('active')
 
         eagle.classList.add('active')
@@ -105,13 +105,13 @@ window.onload = () => {
         if (mouse.classList.contains('jump')) {
             // console.log('mouse on air, don-t worry about cactuses')
 
-            if (cheese1.offsetLeft < 50 && cheese1.offsetLeft > 0 && !cheese1.classList.contains('hidden')) {
+            if (patch.offsetLeft < 50 && patch.offsetLeft > 0 && !patch.classList.contains('hidden')) {
 
                 points.innerText = parseInt(points.innerText) + 1
-                cheese1.classList.add('hidden')
+                patch.classList.add('hidden')
 
                 setTimeout(() => {
-                    cheese1.classList.remove('hidden')
+                    patch.classList.remove('hidden')
                 }, 100)
             }
 
@@ -161,7 +161,7 @@ window.onload = () => {
             // remove animation class 'active' for all other elements
             game.classList.remove('active')
             heart.classList.remove('active')
-            cheese1.classList.remove('active')
+            patch.classList.remove('active')
             cheese2.classList.remove('active')
             eagle.classList.remove('active')
             cactusUp.classList.remove('active')

@@ -239,7 +239,16 @@ body {
 	position: absolute;
 }
 
-#cheese-1 {
+.patch {
+	width: 140px;
+	height: 140px;
+	background-image: url('./img/patch.png');
+	box-sizing: border-box;
+	background-size: contain;
+	position: absolute;
+}
+
+#patch {
 	top: 250px;
 	left: 110%;
 }
@@ -249,7 +258,7 @@ body {
 	left: 170%;
 }
 
-#cheese-1.active {
+#patch.active {
 	animation: cheese-1 3s infinite linear;
 }
 
