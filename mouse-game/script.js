@@ -13,7 +13,8 @@ window.onload = () => {
     const mouse = document.getElementById('mouse')
     const mouseOnSkate = document.getElementById('mouse-on-skate')
 
-    const points = document.getElementById('points')
+    const cheesePoints = document.getElementById('cheese-points')
+    const patchPoints = document.getElementById('patch-points')
     const lifePoints = document.getElementById('life-points')
 
     const patch = document.querySelector('#patch')
@@ -22,25 +23,40 @@ window.onload = () => {
     const cactusUp = document.querySelector('#cactus-up')
     const cactusDown = document.querySelector('#cactus')
 
+    const music = document.getElementById('soundtrack')
+
+    //-- Buttons
     const start = document.getElementById('start')
     const gameOver = document.getElementById('game-over')
 
-    const hash = window.location.hash
-    const rx = new RegExp(/(?:life=(\d+))/)
-    const match = hash.match(rx)
-
-    if (match) {
-        lifePoints.innerText = match[1]
-    }
-
+    setLifePoints()
     setEvents()
+
+    function setLifePoints() {
+        const hash = window.location.hash
+
+        if (!hash) {
+            return
+        }
+
+        const rx = new RegExp(/(?:life=(\d+))/)
+        const match = hash.match(rx)
+
+        if (match) {
+            lifePoints.innerText = match[1]
+        }
+    }
 
     function setEvents() {
         window.addEventListener('keydown', (e) => {
             console.log('Keyboard event:', e)
 
-            if (e.code === 'Enter' && gameState === 'ready') {
-                startGame()
+            if (e.code === 'Enter') {
+                if (gameState === 'ready') {
+                    startGame()
+                } else if (gameState === 'over') {
+                    window.location.reload()
+                }
             }
 
             if (!mouse.classList.contains('jump')) {
@@ -69,6 +85,7 @@ window.onload = () => {
         //     startGame()
         // }, false)
         start.addEventListener('click', () => startGame(), false)
+        gameOver.addEventListener('click', () => window.location.reload(), false)
 
         // sound.addEventListener('click', () => {
         //     document.querySelector('audio').pause()
@@ -77,7 +94,6 @@ window.onload = () => {
     }
 
     function startGame() {
-
         start.classList.add('hidden')
 
         game.classList.add('active')
@@ -90,7 +106,7 @@ window.onload = () => {
 
         cactusUp.classList.add('active')
         cactusDown.classList.add('active')
-        document.querySelector('audio').play()
+        music.play()
 
         gameState = 'run'
 
@@ -104,25 +120,16 @@ window.onload = () => {
         // console.log('cactusDown.offsetLeft:', cactusDown.offsetLeft)
         if (mouse.classList.contains('jump')) {
             // console.log('mouse on air, don-t worry about cactuses')
+            if (patch.offsetLeft < 50 && patch.offsetLeft > 0 && 
+                    !patch.classList.contains('hidden')) {
 
-            if (patch.offsetLeft < 50 && patch.offsetLeft > 0 && !patch.classList.contains('hidden')) {
-
-                points.innerText = parseInt(points.innerText) + 1
-                patch.classList.add('hidden')
-
-                setTimeout(() => {
-                    patch.classList.remove('hidden')
-                }, 100)
+                getPatch()
             }
 
-            if (cheese2.offsetLeft < 50 && cheese2.offsetLeft > 0 && !cheese2.classList.contains('hidden')) {
+            if (cheese2.offsetLeft < 50 && cheese2.offsetLeft > 0 && 
+                    !cheese2.classList.contains('hidden')) {
 
-                points.innerText = parseInt(points.innerText) + 1
-                cheese2.classList.add('hidden')
-
-                setTimeout(() => {
-                    cheese2.classList.remove('hidden')
-                }, 100)
+                getCheese()
             }
 
         } else if (mouseOnSkate.classList.contains('up')) {
@@ -130,46 +137,68 @@ window.onload = () => {
 
             if ((cactusUp.offsetLeft < 100 && cactusUp.offsetLeft > -80) &&
                     !mouse.classList.contains('pain')) {
-                mouse.classList.add('pain')
-
-                // add decrease of patches amount
-                // if (patchesAmount) {
-                    // patchesAmount -= 1
-                // } else {
-                    // lifePoints.innerText = parseInt(lifePoints.innerText) - 1
-                // }
-                lifePoints.innerText = parseInt(lifePoints.innerText) - 1
-
-                setTimeout(() => {
-                    mouse.classList.remove('pain')
-                }, 1000)
+                injury()
             }
         } else {
             if ((cactusDown.offsetLeft < 100 && cactusDown.offsetLeft > -80) &&
-                !mouse.classList.contains('pain')) {
-                mouse.classList.add('pain')
-                lifePoints.innerText = parseInt(lifePoints.innerText) - 1
-
-                setTimeout(() => {
-                    mouse.classList.remove('pain')
-                }, 1000)
+                    !mouse.classList.contains('pain')) {
+                injury()
             }
         }
 
-        if (!parseInt(lifePoints.innerText)) {
+        if (parseInt(lifePoints.innerText)) {
+            requestAnimationFrame(gameStarted)
+        } else {
             console.log('game over')
             // remove animation class 'active' for all other elements
-            game.classList.remove('active')
-            heart.classList.remove('active')
-            patch.classList.remove('active')
-            cheese2.classList.remove('active')
-            eagle.classList.remove('active')
-            cactusUp.classList.remove('active')
-            cactusDown.classList.remove('active')
-            gameOver.classList.remove('hidden')
-        } else {
-            requestAnimationFrame(gameStarted)
+            stopGame()
         }
+    }
+
+    function injury() {
+        mouse.classList.add('pain')
+
+        // if (Number(patchPoints.innerText)) {
+        if (parseInt(patchPoints.innerText)) { // "0"
+            patchPoints.innerText = parseInt(patchPoints.innerText) - 1
+        } else {
+            lifePoints.innerText = parseInt(lifePoints.innerText) - 1
+        }
+
+        setTimeout(() => {
+            mouse.classList.remove('pain')
+        }, 1000)
+    }
+
+    function getPatch() {
+        patchPoints.innerText = parseInt(patchPoints.innerText) + 1
+        patch.classList.add('hidden')
+
+        setTimeout(() => {
+            patch.classList.remove('hidden')
+        }, 100)
+    }
+
+    function getCheese() {
+        cheesePoints.innerText = parseInt(cheesePoints.innerText) + 1
+        cheese2.classList.add('hidden')
+
+        setTimeout(() => {
+            cheese2.classList.remove('hidden')
+        }, 100)
+    }
+
+    function stopGame() {
+        game.classList.remove('active')
+        heart.classList.remove('active')
+        patch.classList.remove('active')
+        cheese2.classList.remove('active')
+        eagle.classList.remove('active')
+        cactusUp.classList.remove('active')
+        cactusDown.classList.remove('active')
+        gameOver.classList.remove('hidden')
+        music.pause()
+        gameState = 'over'
     }
 }
 
