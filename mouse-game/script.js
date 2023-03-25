@@ -25,6 +25,14 @@ window.onload = () => {
     const start = document.getElementById('start')
     const gameOver = document.getElementById('game-over')
 
+    const hash = window.location.hash
+    const rx = new RegExp(/(?:life=(\d+))/)
+    const match = hash.match(rx)
+
+    if (match) {
+        lifePoints.innerText = match[1]
+    }
+
     setEvents()
 
     function setEvents() {
@@ -61,6 +69,11 @@ window.onload = () => {
         //     startGame()
         // }, false)
         start.addEventListener('click', () => startGame(), false)
+
+        // sound.addEventListener('click', () => {
+        //     document.querySelector('audio').pause()
+        //      change sound icon
+        // }, false)
     }
 
     function startGame() {
@@ -77,7 +90,7 @@ window.onload = () => {
 
         cactusUp.classList.add('active')
         cactusDown.classList.add('active')
-        // document.querySelector('audio').play()
+        document.querySelector('audio').play()
 
         gameState = 'run'
 
@@ -116,8 +129,15 @@ window.onload = () => {
             // console.log('mouse on top line, don-t worry about bottom cactus')
 
             if ((cactusUp.offsetLeft < 100 && cactusUp.offsetLeft > -80) &&
-                !mouse.classList.contains('pain')) {
+                    !mouse.classList.contains('pain')) {
                 mouse.classList.add('pain')
+
+                // add decrease of patches amount
+                // if (patchesAmount) {
+                    // patchesAmount -= 1
+                // } else {
+                    // lifePoints.innerText = parseInt(lifePoints.innerText) - 1
+                // }
                 lifePoints.innerText = parseInt(lifePoints.innerText) - 1
 
                 setTimeout(() => {
