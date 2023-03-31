@@ -2,3 +2,10 @@ body {
 	margin: 0;
 	user-select: none;
 }
+
+span{
+	margin: 0;
+	position: fixed;
+	color: white;
+
+}
