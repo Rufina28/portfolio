@@ -126,15 +126,19 @@
 	0% {
 		transform: scale(1) rotate(5deg);
 	}
+
 	40% {
 		transform: scale(1.1) rotate(0deg);
 	}
+
 	60% {
 		transform: scale(1) rotate(5deg);
 	}
+
 	90% {
 		transform: scale(1.1) rotate(0deg);
 	}
+
 	100% {
 		transform: scale(1) rotate(5deg);
 	}
@@ -332,9 +336,9 @@ body {
 	background: rgb(6, 6, 6);
 	position: absolute;
 	font-size: 145px;
-    cursor: pointer;
-		top: 30%;
-    left: 33%;
+	cursor: pointer;
+	top: 30%;
+	left: 33%;
 
 }
 
@@ -355,7 +359,7 @@ h2 {
 }
 
 .chees {
-	background:url('./img/chees.png');
+	background: url('./img/chees.png');
 	width: 50px;
 	height: 40px;
 }
@@ -368,14 +372,14 @@ h2 {
 }
 
 .heart {
-	background:url('./img/life.png');
+	background: url('./img/life.png');
 	background-repeat: no-repeat;
 	background-position: center;
 	width: 50px;
 	height: 40px;
 }
 
-.heart.active{
+.heart.active {
 	animation: heart-beat 1s infinite linear;
 }
 
@@ -387,7 +391,7 @@ h2 {
 }
 
 .patch-icon {
-	background:url('./img/patch.png');
+	background: url('./img/patch.png');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
@@ -395,7 +399,19 @@ h2 {
 	height: 40px;
 }
 
-.audio{
+.audio {
 	position: absolute;
 	color: azure;
+	bottom: 0;
+	font-size: 30px;
+}
+
+.audio p {
+	display: flex;
+	align-items: center;
+}
+
+.audio svg {
+	fill: azure;
+	cursor: pointer;
 }
