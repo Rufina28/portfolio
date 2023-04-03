@@ -1,11 +1,13 @@
 body {
 	margin: 0;
 	user-select: none;
+	overflow: hidden;
 }
 
-span{
+.score {
 	margin: 0;
 	position: fixed;
+	top: 0;
+	left: 0;
 	color: white;
-
 }

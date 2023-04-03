@@ -4,6 +4,7 @@ window.onload = () => {
     console.log('window loaded')
 
     let gameState = 'ready'
+    let soundMute = false
 
     //-- Objects
     const game = document.querySelector('.game')
@@ -24,6 +25,7 @@ window.onload = () => {
     const cactusDown = document.querySelector('#cactus')
 
     const music = document.getElementById('soundtrack')
+    const muteButton = document.getElementById('sound-mute')
 
     //-- Buttons
     const start = document.getElementById('start')
@@ -87,10 +89,20 @@ window.onload = () => {
         start.addEventListener('click', () => startGame(), false)
         gameOver.addEventListener('click', () => window.location.reload(), false)
 
-        // sound.addEventListener('click', () => {
-        //     document.querySelector('audio').pause()
-        //      change sound icon
-        // }, false)
+        muteButton.addEventListener('click', () => toggleMute(), false)
+    }
+
+    function toggleMute() {
+        soundMute = !soundMute
+        music.muted = soundMute
+
+        if (soundMute) {
+            document.getElementById('mute-on').classList.remove('hidden')
+            document.getElementById('mute-off').classList.add('hidden')
+        } else {
+            document.getElementById('mute-on').classList.add('hidden')
+            document.getElementById('mute-off').classList.remove('hidden')
+        }
     }
 
     function startGame() {
