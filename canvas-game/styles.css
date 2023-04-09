@@ -11,3 +11,11 @@ body {
 	left: 0;
 	color: white;
 }
+
+.bg-white{
+	margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: white;
+}
