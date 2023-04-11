@@ -12,10 +12,14 @@ body {
 	color: white;
 }
 
+
 .bg-white{
 	margin: 0;
     position: fixed;
     top: 0;
     left: 0;
-    color: white;
+    color: rgb(15, 15, 15);
+	display: flex;
+	background-color:white;
 }
+
